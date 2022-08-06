@@ -1,17 +1,15 @@
 # Auxiliary Functions
-source $HOME/.config/zsh/include/vcs_info.zsh
-source $HOME/.config/zsh/include/git.zsh
-source $HOME/.config/zsh/include/theme-and-appearance.zsh
+for f in ~/.config/zsh/include/*; do source $f; done 
+
 
 # Plugins
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/source_plugins.zsh
 
 # Themes
-source $HOME/.config/zsh/themes/wedisagree.zsh
+source ~/.config/zsh/themes/wedisagree.zsh
 
 # Aliases
-source $HOME/.config/zsh/aliases/general.zsh
+for f in ~/.config/zsh/aliases/*; do source $f; done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
