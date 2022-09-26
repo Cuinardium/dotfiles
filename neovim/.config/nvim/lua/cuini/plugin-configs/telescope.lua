@@ -40,7 +40,7 @@ telescope.setup {
                 ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
                 ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
                 ["<C-l>"] = actions.complete_tag,
-                ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+                ["<C-h>"] = actions.which_key, -- keys from pressing <C-/>
             },
 
             n = {
@@ -84,7 +84,17 @@ telescope.setup {
         -- }
         -- Now the picker_config_key will be applied every time you call this
         -- builtin picker
-        project = {
+    current_buffer_fuzzy_find = {
+            mappings = {
+                ["n"] = {
+                    ["d"] = function(prompt_bufnr)
+                        print("hola")
+                        local selection = action_state.get_selected_entry()
+                        actions.close(prompt_bufnr)
+                        vim.api.nvim_buf_delete(selection.bufnr, {force = true})
+                    end
+                }
+            }
         }
     },
     extensions = {

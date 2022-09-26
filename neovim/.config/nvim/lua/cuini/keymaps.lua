@@ -42,6 +42,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<C-w>", ":Bdelete<CR>", opts)
 
 -- Insert --
 -- Press jk fast to enter
@@ -98,3 +99,8 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Formatting --
 keymap("n", "<leader>F", ":Format<cr>", opts)
+
+-- Session Manager
+keymap("n", "<leader>ss", "<cmd>SessionManager save_current_session<cr>", opts)
+keymap("n", "<leader>sl", "<cmd>SessionManager load_session<cr>", opts)
+keymap("n", "<leader>sd", "<cmd>SessionManager delete_session<cr>", opts)

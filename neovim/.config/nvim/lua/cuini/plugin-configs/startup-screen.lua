@@ -44,7 +44,7 @@ local function getGreeting(name)
     elseif hour >= 21 then
         greetingIndex = 5
     end
-    return greetingsTable[greetingIndex] .. ", " .. name
+    return greetingsTable[greetingIndex] .. ", " .. name .. " "
 end
 
 local userName = "Cuini"
@@ -130,7 +130,7 @@ end
 local buttons = {
     type = "group",
     val = {
-        button("s", "   Restore", ":SessionManager load_last_session<CR>"),
+        button("s", "   Sessions", ":SessionManager load_session<CR>"),
         button("r", "   Recents", ":Telescope oldfiles<CR>"),
         button("p", "   Projects", ":Telescope project<CR>"),
         button("f", "   Search", ":Telescope find_files<CR>"),

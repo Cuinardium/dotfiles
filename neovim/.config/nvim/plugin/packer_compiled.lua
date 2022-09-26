@@ -84,10 +84,10 @@ _G.packer_plugins = {
     path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["bufferline.nvim"] = {
+  ["bufdelete.nvim"] = {
     loaded = true,
-    path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
+    path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
+    url = "https://github.com/famiu/bufdelete.nvim"
   },
   ["cmp-buffer"] = {
     loaded = true,
@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
   },
+  ["lsp_codelens_extensions.nvim"] = {
+    loaded = true,
+    path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/lsp_codelens_extensions.nvim",
+    url = "https://github.com/ericpubu/lsp_codelens_extensions.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -166,6 +171,11 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/cuini/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
+  ["neovim-session-manager"] = {
+    loaded = true,
+    path = "/Users/cuini/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
+    url = "https://github.com/Shatur/neovim-session-manager"
   },
   ["null-ls.nvim"] = {
     loaded = true,

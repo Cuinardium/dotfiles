@@ -46,11 +46,13 @@ return packer.startup(function(use)
     use "numToStr/Comment.nvim" -- easily comment stuff
     use 'kyazdani42/nvim-web-devicons' -- icons for other plugind
     use 'kyazdani42/nvim-tree.lua' -- project tree view
-    use "akinsho/bufferline.nvim" -- better bufferline
+    -- use "akinsho/bufferline.nvim" -- better bufferline
     use "nvim-lualine/lualine.nvim" -- better statusline
     use "moll/vim-bbye" -- idk
     use "akinsho/toggleterm.nvim" -- terminal
     use "goolord/alpha-nvim" -- start screen
+    use "Shatur/neovim-session-manager" -- session manager
+    use "famiu/bufdelete.nvim" -- delete buffer
 
     -- Autocomplete
     use "hrsh7th/nvim-cmp" -- the completion plugin
@@ -70,6 +72,7 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim" -- for formaters and linters
+    use "ericpubu/lsp_codelens_extensions.nvim" -- for code lenses
     use "github/copilot.vim" -- copilot
     use "mfussenegger/nvim-jdtls" -- jdtls
     use "simrat39/rust-tools.nvim" -- rust tools

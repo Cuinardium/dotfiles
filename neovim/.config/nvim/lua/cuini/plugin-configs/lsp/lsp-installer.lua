@@ -3,107 +3,64 @@ local lsp_installer = require("nvim-lsp-installer")
 local handler = Load_File("cuini.plugin-configs.lsp.handlers")
 local lspconfig = Load_Plugin("lspconfig")
 
-
-local servers = {
-    "sumneko_lua",
-    "clangd",
-    "cmake",
-    "pyright",
-    "bashls",
-    "jdtls",
-    "rust_analyzer",
-    "taplo"
+local default_opts = {
+    on_attach = handler.on_attach,
+    capabilities = handler.capabilities,
 }
 
-local opts = {}
+local servers = {
+    sumneko_lua = Load_File("cuini.plugin-configs.lsp.settings.sumneko_lua"),
+    clangd = Load_File("cuini.plugin-configs.lsp.settings.clangd"),
+    cmake = default_opts,
+    pyright = default_opts,
+    bashls = default_opts,
+    taplo = default_opts,
+    rust_analyzer = nil,
+    jdtls = nil
+}
 
 
 lsp_installer.setup()
 
-for _, server in pairs(servers) do
-    opts = {
-        on_attach = handler.on_attach,
-        capabilities = handler.capabilities,
-    }
+local keymap = vim.keymap.set
+local key_opts = { silent = true }
 
-    if server == "sumneko_lua" then
-        local sumneko_opts = require "cuini.plugin-configs.lsp.settings.sumneko_lua"
-        opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-    end
+-- codelldb path
+local extension_path = vim.env.HOME .. "/Developer/codelldb/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "/lldb/lib/liblldb.dylib"
 
-    if server == "rust_analyzer" then
-    local keymap = vim.keymap.set
-    local key_opts = { silent = true }
-
-    keymap("n", "<leader>rh", "<cmd>RustSetInlayHints<Cr>", key_opts)
-    keymap("n", "<leader>rhd", "<cmd>RustDisableInlayHints<Cr>", key_opts)
-    keymap("n", "<leader>th", "<cmd>RustToggleInlayHints<Cr>", key_opts)
-    keymap("n", "<leader>rr", "<cmd>RustRunnables<Cr>", key_opts)
-    keymap("n", "<leader>rem", "<cmd>RustExpandMacro<Cr>", key_opts)
-    keymap("n", "<leader>roc", "<cmd>RustOpenCargo<Cr>", key_opts)
-    keymap("n", "<leader>rpm", "<cmd>RustParentModule<Cr>", key_opts)
-    keymap("n", "<leader>rjl", "<cmd>RustJoinLines<Cr>", key_opts)
-    keymap("n", "<leader>rha", "<cmd>RustHoverActions<Cr>", key_opts)
-    keymap("n", "<leader>rhr", "<cmd>RustHoverRange<Cr>", key_opts)
-    keymap("n", "<leader>rmd", "<cmd>RustMoveItemDown<Cr>", key_opts)
-    keymap("n", "<leader>rmu", "<cmd>RustMoveItemUp<Cr>", key_opts)
-    keymap("n", "<leader>rsb", "<cmd>RustStartStandaloneServerForBuffer<Cr>", key_opts)
-    keymap("n", "<leader>rd", "<cmd>RustDebuggables<Cr>", key_opts)
-    keymap("n", "<leader>rv", "<cmd>RustViewCrateGraph<Cr>", key_opts)
-    keymap("n", "<leader>rw", "<cmd>RustReloadWorkspace<Cr>", key_opts)
-    keymap("n", "<leader>rss", "<cmd>RustSSR<Cr>", key_opts)
-    keymap("n", "<leader>rxd", "<cmd>RustOpenExternalDocs<Cr>", key_opts)
-
-    require("rust-tools").setup {
-      tools = {
+-- rust-tools config
+require("rust-tools").setup {
+    tools = {
         on_initialized = function()
-          vim.cmd [[
+            vim.cmd [[
             autocmd BufEnter,CursorHold,InsertLeave,BufWritePost *.rs silent! lua vim.lsp.codelens.refresh()
           ]]
         end,
-      },
-      server = {
+    },
+    server = {
         on_attach = handler.on_attach,
         capabilities = handler.capabilities,
         settings = {
-          ["rust-analyzer"] = {
-            lens = {
-              enable = true,
+            ["rust-analyzer"] = {
+                lens = {
+                    enable = true,
+                },
+                checkOnSave = {
+                    command = "clippy",
+                },
             },
-            checkOnSave = {
-              command = "clippy",
-            },
-          },
         },
-      },
+    },
+    dap = {
+        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path)
     }
+}
 
-    goto continue
-  end
-
-    if server == "jdtls" then goto continue end
-
-    lspconfig[server].setup(opts)
-    ::continue::
+-- Lsp setup
+for server, options in pairs(servers) do
+    if options ~= nil then
+        lspconfig[server].setup(options)
+    end
 end
-
--- -- Register a handler that will be called for all installed servers.
--- -- Alternatively, you may also register handlers on specific server instances instead (see example below).
--- lsp_installer.on_server_ready(function(server)
---     local opts = {
---         on_attach = handler.on_attach,
---         capabilities = handler.capabilities,
---     }
---
---
---     if server.name == "sumneko_lua" then
---         local sumneko_opts = Load_File("cuini.plugin-configs.lsp.settings.sumneko_lua")
---         opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
---     end
---
---     if server == "jdtls" then goto continue end
---
---     -- This setup() function is exactly the same as lspconfig's setup function.
---     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
---     server:setup(opts)
--- end)

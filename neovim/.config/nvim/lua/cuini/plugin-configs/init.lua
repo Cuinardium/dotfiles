@@ -1,5 +1,8 @@
 -- Load config files for plugins
 
+-- Session Manager -> ./sessions.lua
+Load_File('cuini.plugin-configs.sessions')
+
 -- Autocomplete -> ./autocomplete.lua
 Load_File('cuini.plugin-configs.autocomplete')
 
