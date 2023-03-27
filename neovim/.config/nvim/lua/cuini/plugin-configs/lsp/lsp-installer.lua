@@ -9,12 +9,13 @@ local default_opts = {
 }
 
 local servers = {
-    sumneko_lua = Load_File("cuini.plugin-configs.lsp.settings.sumneko_lua"),
+    lua_ls = Load_File("cuini.plugin-configs.lsp.settings.sumneko_lua"),
     clangd = Load_File("cuini.plugin-configs.lsp.settings.clangd"),
     cmake = default_opts,
     pyright = default_opts,
     bashls = default_opts,
     taplo = default_opts,
+    lemminx = default_opts,
     rust_analyzer = nil,
     jdtls = nil
 }

@@ -14,10 +14,13 @@ end
 
 -- Find root of project
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
-local root_dir = require("jdtls.setup").find_root(root_markers)
-if root_dir == "" then
-  return
-end
+--[[ local root_dir = require("jdtls.setup").find_root(root_markers) ]]
+--[[ if root_dir == "" then ]]
+--[[   return ]]
+--[[ end ]]
+
+root_dir = vim.fs.dirname(vim.fs.find(root_markers, { upward = true })[1])
+
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
@@ -30,7 +33,7 @@ JAVA_DAP_ACTIVE = true
 
 local bundles = {
   vim.fn.glob(
-    home .. "/Developer/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+    home .. "/developer/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
   ),
 }
 
@@ -70,7 +73,7 @@ local config = {
 
     -- 💀
     "-configuration",
-    home .. "/.local/share/nvim/lsp_servers/jdtls/config_mac",
+    home .. "/.local/share/nvim/lsp_servers/jdtls/config_linux",
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.

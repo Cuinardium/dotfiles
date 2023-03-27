@@ -1,5 +1,5 @@
 -- Safe load Comment.nvim 
-local comment = Load_Plugin("comment")
+local comment = Load_Plugin("Comment")
 
 -- Config
 comment.setup {
