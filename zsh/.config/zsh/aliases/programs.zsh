@@ -36,3 +36,5 @@ alias j11='sudo archlinux-java set java-11-openjdk'
 alias j17='sudo archlinux-java set java-17-openjdk'
 alias j19='sudo archlinux-java set java-19-openjdk'
 
+# Copilot cli
+eval "$(github-copilot-cli alias -- "$0")"

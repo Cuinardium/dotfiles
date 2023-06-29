@@ -180,6 +180,7 @@ vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
+vim.opt.shiftwidth = 2
 
 keymap("n", "<leader>jo", "<Cmd>lua require'jdtls'.organize_imports()<CR>", opts)
 keymap("n", "<leader>jv", "<Cmd>lua require('jdtls').extract_variable()<CR>", opts)

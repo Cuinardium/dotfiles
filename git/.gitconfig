@@ -4,7 +4,7 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = Cuinardium
+	name = Santiago Ballerini
 	email = sballerini@itba.edu.ar
 
 [core]

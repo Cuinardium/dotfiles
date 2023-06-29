@@ -11,6 +11,7 @@ local default_opts = {
 local servers = {
     lua_ls = Load_File("cuini.plugin-configs.lsp.settings.sumneko_lua"),
     clangd = Load_File("cuini.plugin-configs.lsp.settings.clangd"),
+    html = Load_File("cuini.plugin-configs.lsp.settings.html"),
     cmake = default_opts,
     pyright = default_opts,
     bashls = default_opts,

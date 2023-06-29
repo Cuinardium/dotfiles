@@ -6,6 +6,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.bin"
 export PATH="$PATH":"/snap/bin"
 export PATH="$PATH":"/var/lib/snapd/snap/bin"
+export PATH="$PATH":"/home/cuini/developer/idea-IU-231.8109.175/bin"
 
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
@@ -20,4 +21,4 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 
 export CHROME_EXECUTABLE="google-chrome-stable"
-
+export PAMPERO_USER="sballerini"

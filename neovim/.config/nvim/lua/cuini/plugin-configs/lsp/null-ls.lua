@@ -12,8 +12,8 @@ null_ls.setup {
     debug = false,
     sources = { -- Sources here
         formatting.clang_format.with({ extra_args = {
-            "-style={IndentWidth: 4, ColumnLimit: 0}"
+            "-style={IndentWidth: 4, ColumnLimit: 120}"
         } }),
-        null_ls.builtins.formatting.google_java_format.with({ extra_args = { "--aosp" } }),
+        null_ls.builtins.formatting.google_java_format,
     },
 }
