@@ -81,7 +81,7 @@ super + alt + r
 	bspc wm -r
 
 # close and kill
-super + {_,shift + }q
+super + {_,shift + }w
 	bspc node -{c,k}
 
 ####
@@ -127,19 +127,15 @@ super + alt + button{4,5}
 	bspc config window_gap $(( $(bspc config window_gap) {-,+} 5 ))
 
 # focus the node in the given direction
-super + {_,shift + }{Left,Down,Up,Right}
+super + {_,shift + }{y,u,i,o}
 	bspc node -{f,s} {west,south,north,east}
-
-# focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
 alt + {_,shift + }Tab
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-super + alt + {Left,Right}
+super + {Left,Right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -155,6 +151,10 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# send the focused node to the next/previous desktop
+super + shift + {p,n}
+    bspc node -d {prev,next}
 
 #
 # preselect
@@ -188,9 +188,6 @@ super + alt + {h,j,k,l}
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -10 0,top 0 10,bottom 0 -10,left 10 0}
 
-# move a floating window
-alt + shift {Left,Down,Up,Right}
-	bspc node -v {-10 0,0 10,0 -10,10 0}
 
 # Manage brightness
 XF86MonBrightness{Up,Down}
