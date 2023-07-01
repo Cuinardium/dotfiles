@@ -107,6 +107,7 @@ return packer.startup(function(use)
     use "sainnhe/gruvbox-material"
     use "sainnhe/everforest"
     use 'folke/lsp-colors.nvim' -- colors for lsp diagnostics
+    use 'catppuccin/nvim'
     use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", cmd = "MarkdownPreview" } -- Markdown previewer
 
     -- Automatically set up your configuration after cloning packer.nvim

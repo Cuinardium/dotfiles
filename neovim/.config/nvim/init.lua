@@ -16,6 +16,9 @@ function Load_Plugin(plugin)
     return safe_load(plugin, "plugin")
 end
 
+-- Colorscheme -> ./lua/cuini/colorscheme.lua
+Load_File('cuini.colorscheme') -- colorscheme, usamos lua para manejar errores en la carga del colorscheme
+
 -- Plugins -> ./lua/cuini/plugins.lua
 Load_File('cuini.plugins')
 
@@ -27,6 +30,3 @@ Load_File('cuini.options')
 
 -- Keymaps -> ./lua/cuini/keymaps.lua
 Load_File('cuini.keymaps')
-
--- Colorscheme -> ./lua/cuini/colorscheme.lua
-Load_File('cuini.colorscheme') -- default colorscheme, usamos lua para manejar errores en la carga del colorscheme

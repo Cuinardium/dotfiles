@@ -1,11 +1,18 @@
 -- Safe load lualine
 local lualine = Load_Plugin("lualine")
 
+local lualine_theme = 'gruvbox-material'
+if COLORSCHEME == 'catppuccin-latte' then
+    lualine_theme = 'catppuccin-latte'
+elseif COLORSCHEME == 'catppuccin-mocha' then
+    lualine_theme = 'catppuccin-mocha'
+end
+
 -- Config
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = 'gruvbox-material',
+        theme = lualine_theme,
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = { 'NvimTree', 'alpha' },
