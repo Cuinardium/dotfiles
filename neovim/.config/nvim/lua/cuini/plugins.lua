@@ -57,6 +57,8 @@ return packer.startup(function(use)
     use "samodostal/image.nvim" -- image previewer with ascii
     use "m00qek/baleia.nvim"
 
+    use "andweeb/presence.nvim" -- discord presence
+
     -- Autocomplete
     use "hrsh7th/nvim-cmp" -- the completion plugin
     use "hrsh7th/cmp-buffer" -- buffer completions

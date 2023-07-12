@@ -53,3 +53,6 @@ Load_File('cuini.plugin-configs.hardtime')
 
 -- Image -> ./image.lua
 Load_File('cuini.plugin-configs.image')
+
+-- Presence -> ./presence.lua
+Load_File('cuini.plugin-configs.presence')
