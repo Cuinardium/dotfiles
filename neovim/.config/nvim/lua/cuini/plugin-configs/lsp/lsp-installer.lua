@@ -2,6 +2,8 @@
 local lsp_installer = require("nvim-lsp-installer")
 local handler = Load_File("cuini.plugin-configs.lsp.handlers")
 local lspconfig = Load_Plugin("lspconfig")
+local neodev = Load_Plugin("neodev")
+local rust_tools = Load_Plugin("rust-tools")
 
 local default_opts = {
     on_attach = handler.on_attach,
@@ -9,7 +11,7 @@ local default_opts = {
 }
 
 local servers = {
-    lua_ls = Load_File("cuini.plugin-configs.lsp.settings.sumneko_lua"),
+    lua_ls = Load_File("cuini.plugin-configs.lsp.settings.lua_ls"),
     clangd = Load_File("cuini.plugin-configs.lsp.settings.clangd"),
     html = Load_File("cuini.plugin-configs.lsp.settings.html"),
     cmake = default_opts,
@@ -21,8 +23,9 @@ local servers = {
     jdtls = nil
 }
 
+neodev.setup()
 
-lsp_installer.setup()
+lsp_installer.setup {}
 
 local keymap = vim.keymap.set
 local key_opts = { silent = true }
@@ -33,7 +36,7 @@ local codelldb_path = extension_path .. "adapter/codelldb"
 local liblldb_path = extension_path .. "/lldb/lib/liblldb.dylib"
 
 -- rust-tools config
-require("rust-tools").setup {
+rust_tools.setup {
     tools = {
         on_initialized = function()
             vim.cmd [[

@@ -44,3 +44,12 @@ Load_File('cuini.plugin-configs.copilot')
 
 -- Dap -> ./dap.lua
 Load_File('cuini.plugin-configs.dap')
+
+-- Leap -> ./leap.lua
+Load_File('cuini.plugin-configs.leap')
+
+-- Hardtime -> ./hardtime.lua
+Load_File('cuini.plugin-configs.hardtime')
+
+-- Image -> ./image.lua
+Load_File('cuini.plugin-configs.image')

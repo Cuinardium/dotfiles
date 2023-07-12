@@ -54,6 +54,9 @@ return packer.startup(function(use)
     use "Shatur/neovim-session-manager" -- session manager
     use "famiu/bufdelete.nvim" -- delete buffer
 
+    use "samodostal/image.nvim" -- image previewer with ascii
+    use "m00qek/baleia.nvim"
+
     -- Autocomplete
     use "hrsh7th/nvim-cmp" -- the completion plugin
     use "hrsh7th/cmp-buffer" -- buffer completions
@@ -69,6 +72,7 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
+    use "folke/neodev.nvim" -- lua nvim lsp config
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim" -- for formaters and linters
@@ -109,6 +113,10 @@ return packer.startup(function(use)
     use 'folke/lsp-colors.nvim' -- colors for lsp diagnostics
     use 'catppuccin/nvim'
     use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", cmd = "MarkdownPreview" } -- Markdown previewer
+
+    -- Motion
+    use 'ggandor/leap.nvim'
+    use "m4xshen/hardtime.nvim" -- Establish good habits
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
