@@ -1,5 +1,6 @@
 -- Safe load lualine
 local lualine = Load_Plugin("lualine")
+local navic = Load_Plugin("nvim-navic")
 
 local lualine_theme = 'gruvbox-material'
 if COLORSCHEME == 'catppuccin-latte' then
@@ -9,6 +10,10 @@ elseif COLORSCHEME == 'catppuccin-mocha' then
 end
 
 -- Config
+navic.setup {
+    highlight = true
+}
+
 lualine.setup {
     options = {
         icons_enabled = true,
@@ -36,5 +41,14 @@ lualine.setup {
         lualine_z = {}
     },
     tabline = {},
-    extensions = {}
+    extensions = {},
+    winbar = {
+        lualine_c = {
+            {
+                'navic',
+                color_correction = nil,
+                navic_opts = nil
+            }
+        }
+    }
 }

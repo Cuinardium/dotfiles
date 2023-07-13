@@ -1,3 +1,6 @@
+local navic = Load_Plugin("nvim-navic")
+local navbuddy = Load_Plugin("nvim-navbuddy")
+
 local M = {}
 
 -- TODO: backfill this to template
@@ -94,6 +97,12 @@ M.on_attach = function(client, bufnr)
         -- client.resolved_capabilities.document_formatting = false
         -- client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
     end
+
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+        navbuddy.attach(client, bufnr)
+    end
+
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
