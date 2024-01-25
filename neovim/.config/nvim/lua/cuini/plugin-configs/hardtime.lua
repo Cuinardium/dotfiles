@@ -1,5 +1,7 @@
-local hardtime = Load_Plugin("hardtime")
-
-hardtime.setup {
-    restricted_keys = {}
-}
+--[[ local hardtime = Load_Plugin("hardtime") ]]
+--[[]]
+--[[ hardtime.setup { ]]
+--[[     restricted_keys = { ]]
+--[[         ["<CR>"] = { "n", "x" }, ]]
+--[[     } ]]
+--[[ } ]]

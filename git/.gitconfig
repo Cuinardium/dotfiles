@@ -13,3 +13,5 @@
 
 [color]
     ; pager = no
+[init]
+	defaultBranch = main

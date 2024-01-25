@@ -56,3 +56,6 @@ Load_File('cuini.plugin-configs.image')
 
 -- Presence -> ./presence.lua
 Load_File('cuini.plugin-configs.presence')
+
+-- Tabset -> ./tabset.lua
+Load_File('cuini.plugin-configs.tabset')

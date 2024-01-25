@@ -58,7 +58,7 @@ Print
 
 # Screenshot Select
 ctrl + Print
-	ScreenShoTer --sel
+    maim -s -u | xclip -selection clipboard -t image/png -i
 
 # Screenshot in 10s
 alt + Print

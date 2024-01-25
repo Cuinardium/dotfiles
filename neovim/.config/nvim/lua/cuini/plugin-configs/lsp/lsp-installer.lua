@@ -19,6 +19,8 @@ local servers = {
     bashls = default_opts,
     taplo = default_opts,
     lemminx = default_opts,
+    cssls = default_opts,
+    tsserver = default_opts,
     rust_analyzer = nil,
     jdtls = nil
 }

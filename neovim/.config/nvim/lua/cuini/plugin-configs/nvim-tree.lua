@@ -2,8 +2,6 @@
 
 -- Safe load nvim-tree
 local nvim_tree = Load_Plugin("nvim-tree")
-local nvim_tree_config = Load_Plugin("nvim-tree.config")
-local tree_cb = nvim_tree_config.nvim_tree_callback
 
 -- Config
 nvim_tree.setup {
@@ -19,7 +17,6 @@ nvim_tree.setup {
     update_cwd = true,
     view = {
       width = 32,
-      hide_root_folder = false,
       side = "left",
       preserve_window_proportions = false,
       number = false,

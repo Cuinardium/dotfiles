@@ -11,9 +11,25 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup {
     debug = false,
     sources = { -- Sources here
-        formatting.clang_format.with({ extra_args = {
-            "-style={IndentWidth: 4, ColumnLimit: 120}"
-        } }),
-        null_ls.builtins.formatting.google_java_format,
+        -- C/C++
+        formatting.clang_format.with({
+            extra_args = {
+                "-style={IndentWidth: 4, ColumnLimit: 120}"
+            }
+        }),
+
+        -- Java
+        formatting.google_java_format,
+
+        -- Python
+        formatting.black,
+        diagnostics.mypy,
+        diagnostics.ruff,
+
+        -- Web
+       formatting.prettier,
+
+        -- Json
+       formatting.jq
     },
 }

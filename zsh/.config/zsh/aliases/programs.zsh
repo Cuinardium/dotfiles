@@ -1,8 +1,13 @@
 # builtin
 alias c='clear'
+
+# Better ls
+alias ls='lsd'
+
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
+alias tree='lsd --tree'
 
 # nvim
 alias vim='nvim'
@@ -29,6 +34,9 @@ alias unmount-server='umount -f ~/shared'
 
 alias ssh-server-remote='ssh cuini@cuini-server.duckdns.org -p 69 -o IdentityFile=/home/cuini/.ssh/home-server-id'
 alias ssh-server-local='ssh cuini@192.168.0.31 -o IdentityFile=/home/cuini/.ssh/home-server-id'
+
+alias pgcli-server-peliculas='pgcli postgresql://cuini@localhost:5432/peliculas --ssh-tunnel 192.168.0.31'
+alias mongo-server="mongosh --host 192.168.0.31 -u cuini -p secreto --authenticationDatabase lab"
 
 # java
 alias j8='sudo archlinux-java set java-8-openjdk'

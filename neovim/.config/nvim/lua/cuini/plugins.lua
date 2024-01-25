@@ -61,6 +61,8 @@ return packer.startup(function(use)
 
     use "andweeb/presence.nvim" -- discord presence
 
+    use "FotiadisM/tabset.nvim" -- tabset
+
     -- Autocomplete
     use "hrsh7th/nvim-cmp"                    -- the completion plugin
     use "hrsh7th/cmp-buffer"                  -- buffer completions
@@ -135,7 +137,8 @@ return packer.startup(function(use)
 
     -- Motion
     use 'ggandor/leap.nvim'
-    use "m4xshen/hardtime.nvim" -- Establish good habits
+    use 'theprimeagen/vim-be-good' -- vim tutor
+    --[[ use "m4xshen/hardtime.nvim" -- Establish good habits ]]
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

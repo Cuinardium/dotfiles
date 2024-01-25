@@ -41,7 +41,7 @@ function ShotNow() {
 	
 	cd "$dir" || return
 	local bytes
-	bytes="$(maim -u -o -f png | base64)"
+	bytes="$(maim -u -g 2560x1080+1080+420 -o -f  png | base64)"
 	imgtemp
 }
 
@@ -58,7 +58,7 @@ function Shot10 () {
 	sleep 1 
 	cd "$dir" || return
 	local bytes
-	bytes="$(maim -u -o -f png | base64)"
+	bytes="$(maim -u -g 2560x1080+1080+420 -o -f png | base64)"
 	imgtemp
 }
 

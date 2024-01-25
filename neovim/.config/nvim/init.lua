@@ -2,7 +2,8 @@
 local function safe_load(toLoad, type)
     local status_ok, resp = pcall(require, toLoad)
     if not status_ok then
-        vim.notify("Error loading " .. type .. ": " .. toLoad)
+        vim.notify("Error loading " .. type .. ": " .. toLoad, vim.log.levels.ERROR)
+        vim.notify(resp, vim.log.levels.ERROR)
         return
     end
     return resp

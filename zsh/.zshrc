@@ -25,3 +25,4 @@ colorscript -e blocks1
 # ./.config/polybar/blocks/launch.sh
 
 trap "kill $SSH_AGENT_PID" 0
+export PATH=$PATH:/home/cuini/.spicetify
