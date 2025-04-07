@@ -14,13 +14,14 @@ local servers = {
     lua_ls = Load_File("cuini.plugin-configs.lsp.settings.lua_ls"),
     clangd = Load_File("cuini.plugin-configs.lsp.settings.clangd"),
     html = Load_File("cuini.plugin-configs.lsp.settings.html"),
+    zls = Load_File("cuini.plugin-configs.lsp.settings.zls"),
     cmake = default_opts,
     pyright = default_opts,
     bashls = default_opts,
     taplo = default_opts,
     lemminx = default_opts,
     cssls = default_opts,
-    tsserver = default_opts,
+    ts_ls = default_opts,
     rust_analyzer = nil,
     jdtls = nil
 }

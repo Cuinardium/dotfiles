@@ -19,7 +19,9 @@ null_ls.setup {
         }),
 
         -- Java
-        formatting.google_java_format,
+        formatting.google_java_format.with({
+            -- extra_args = { "--aosp" }
+        }),
 
         -- Python
         formatting.black,

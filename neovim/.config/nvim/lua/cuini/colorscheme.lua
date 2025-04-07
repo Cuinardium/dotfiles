@@ -5,15 +5,8 @@ Load_Plugin('catppuccin').setup({
 })
 
 -- Set colorscheme
-local ricetheme = os.getenv("RICETHEME")
 
-COLORSCHEME = "gruvbox-material"
-
-if ricetheme == "aline" then
-    COLORSCHEME = "catppuccin-latte"
-elseif ricetheme == "cristina" then
-    COLORSCHEME = "catppuccin-mocha"
-end
+COLORSCHEME = "catppuccin-mocha"
 
 -- Llamado seguro, equivalente a vim.cmd "colorschme ..."
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. COLORSCHEME)

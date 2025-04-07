@@ -31,3 +31,23 @@ Load_File('cuini.options')
 
 -- Keymaps -> ./lua/cuini/keymaps.lua
 Load_File('cuini.keymaps')
+
+vim.cmd ([[
+augroup Binary
+    autocmd!
+    " set the 'bin' option to true if the file I'm opening is a .bin
+    au BufReadPre   *.bmp,*.bin,*.out let &bin=1
+
+    " before I start editing set the binary editor
+    au BufReadPost  *.bmp,*.bin,*.out if &bin | :%!xxd
+    au BufReadPost  *.bmp,*.bin,*.out set ft=xxd | endif
+
+    " before saving
+    au BufWritePre  *.bmp,*.bin,*.out if &bin | :%!xxd -r
+    au BufWritePre  *.bmp,*.bin,*.out endif
+
+    " after saving
+    au BufWritePost *.bmp,*.bin,*.out if &bin | :%!xxd
+    au BufWritePost *.bmp,*.bin,*.out set nomod | endif
+augroup END
+    ]])

@@ -1,4 +1,4 @@
-local jdtls = Load_Plugin("jdtls")
+ local jdtls = Load_Plugin("jdtls")
 
 -- Determine OS
 local home = os.getenv "HOME"

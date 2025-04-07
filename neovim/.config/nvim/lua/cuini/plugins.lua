@@ -39,20 +39,20 @@ packer.init {
 -- Install your plugins here (use "user/repo")
 return packer.startup(function(use)
     -- General plugins
-    use "wbthomason/packer.nvim"        -- have packer manage itself
-    use "nvim-lua/popup.nvim"           -- an implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim"         -- useful lua functions used by lots of plugins
-    use "windwp/nvim-autopairs"         -- autopairs, integrates with both cmp and treesitter
-    use "numToStr/Comment.nvim"         -- easily comment stuff
-    use 'kyazdani42/nvim-web-devicons'  -- icons for other plugind
-    use 'kyazdani42/nvim-tree.lua'      -- project tree view
+    use "wbthomason/packer.nvim"       -- have packer manage itself
+    use "nvim-lua/popup.nvim"          -- an implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim"        -- useful lua functions used by lots of plugins
+    use "windwp/nvim-autopairs"        -- autopairs, integrates with both cmp and treesitter
+    use "numToStr/Comment.nvim"        -- easily comment stuff
+    use 'kyazdani42/nvim-web-devicons' -- icons for other plugind
+    use 'kyazdani42/nvim-tree.lua'     -- project tree view
     -- use "akinsho/bufferline.nvim" -- better bufferline
-    use "nvim-lualine/lualine.nvim"     -- better statusline
-    use "moll/vim-bbye"                 -- idk
-    use "akinsho/toggleterm.nvim"       -- terminal
-    use "goolord/alpha-nvim"            -- start screen
-    use "Shatur/neovim-session-manager" -- session manager
-    use "famiu/bufdelete.nvim"          -- delete buffer
+    use "nvim-lualine/lualine.nvim"    -- better statusline
+    use "moll/vim-bbye"                -- idk
+    use "akinsho/toggleterm.nvim"      -- terminal
+    use "goolord/alpha-nvim"           -- start screen
+    -- use "Shatur/neovim-session-manager" -- session manager
+    use "famiu/bufdelete.nvim"         -- delete buffer
 
     use {
         "samodostal/image.nvim", -- image previewer with ascii
@@ -83,9 +83,34 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer"       -- simple to use language server installer
     use "jose-elias-alvarez/null-ls.nvim"       -- for formaters and linters
     use "ericpubu/lsp_codelens_extensions.nvim" -- for code lenses
-    use "github/copilot.vim"                    -- copilot
     use "mfussenegger/nvim-jdtls"               -- jdtls
     use "simrat39/rust-tools.nvim"              -- rust tools
+
+    use {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            Load_Plugin("copilot").setup {
+                suggestion = {
+                    enabled = true,
+                    hide_during_completion = true,
+                    auto_trigger = false,
+                    keymap = {
+                        accept = "<C-a>",
+                        next   = "<C-s>"
+                    }
+                },
+                panel = {
+                    enabled = true,
+                    layout = {
+                        position = "left",
+                        ratio = 0.4
+                    },
+                }
+            }
+        end,
+    } -- copilot
 
     use {
         "SmiteshP/nvim-navbuddy", -- Symbol navigator
@@ -106,6 +131,7 @@ return packer.startup(function(use)
     use "mfussenegger/nvim-dap"           -- debug adapter protocol
     use "rcarriga/nvim-dap-ui"            -- debug adapter ui
     use "theHamsta/nvim-dap-virtual-text" -- virtual text for dap
+    use "nvim-neotest/nvim-nio"
 
     -- Telescope
     use "nvim-telescope/telescope.nvim"                              -- telescope itself
@@ -126,6 +152,7 @@ return packer.startup(function(use)
     use 'JoosepAlviste/nvim-ts-context-commentstring' -- context for comments
 
     -- Git
+    use "sindrets/diffview.nvim" 
     use "lewis6991/gitsigns.nvim" -- git integration
 
     -- Colorschemes

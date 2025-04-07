@@ -118,23 +118,11 @@ telescope.setup {
                 }
             }
         },
-        file_browser = {
-            mappings = {
-                ["n"] = {
-                    ["cd"] = function(prompt_bufnr)
-                        require("telescope").extensions.file_browser.actions.change_cwd(prompt_bufnr)
-                        vim.cmd(string.format("e! %s/", vim.fn.getcwd()))
-
-                    end
-                }
-            }
-        }
     },
 }
 
 -- Load extensions
 telescope.load_extension("project")
-telescope.load_extension("file_browser")
 telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
 telescope.load_extension('ui-select')

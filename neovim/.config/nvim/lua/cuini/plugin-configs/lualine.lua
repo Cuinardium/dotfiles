@@ -28,7 +28,7 @@ lualine.setup {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
-        lualine_x = { 'diff', 'encoding', 'filetype' },
+        lualine_x = { 'copilot', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
     },

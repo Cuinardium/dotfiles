@@ -1,14 +1,14 @@
 -- check if image converter is installed
-if vim.fn.executable("ascii-image-converter") ~= 1 then
-    vim.notify("ascii-image-converter is not installed", vim.log.levels.WARN)
-    return
-end
-
-local image = Load_Plugin("image")
-
-image.setup {
-    render = {
-        foreground_color = true,
-        background_color = true,
-    }
-}
+--[[ if vim.fn.executable("ascii-image-converter") ~= 1 then ]]
+--[[     vim.notify("ascii-image-converter is not installed", vim.log.levels.WARN) ]]
+--[[     return ]]
+--[[ end ]]
+--[[]]
+--[[ local image = Load_Plugin("image") ]]
+--[[]]
+--[[ image.setup { ]]
+--[[     render = { ]]
+--[[         foreground_color = true, ]]
+--[[         background_color = true, ]]
+--[[     } ]]
+--[[ } ]]
