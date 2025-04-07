@@ -15,3 +15,5 @@
     ; pager = no
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true

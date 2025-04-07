@@ -21,6 +21,7 @@ alias pipes='pipes.sh'
 alias weather='curl wttr.in/BuenosAires\?0nqf'
 alias tuki='echo tuki | cowsay -f bud-frogs | lolcat'
 alias mk='ad'
+alias miller='clear && pv -qL 50 /home/cuini/Documents/ley-bases.txt'
 # eval $(thefuck --alias)
 
 # docker sistemas operativos
@@ -42,7 +43,7 @@ alias mongo-server="mongosh --host 192.168.0.31 -u cuini -p secreto --authentica
 alias j8='sudo archlinux-java set java-8-openjdk'
 alias j11='sudo archlinux-java set java-11-openjdk'
 alias j17='sudo archlinux-java set java-17-openjdk'
-alias j19='sudo archlinux-java set java-19-openjdk'
+alias j22='sudo archlinux-java set java-22-openjdk'
 
 # Copilot cli
 eval "$(github-copilot-cli alias -- "$0")"

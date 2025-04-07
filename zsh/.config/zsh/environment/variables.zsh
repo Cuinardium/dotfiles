@@ -1,7 +1,7 @@
 # PATH variables
 # export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 # export PATH="/users/cuini/Library/Python/3.9/bin:$PATH"
-export PATH="$PATH:/home/cuini/developer/flutter/bin"
+export PATH="$PATH:/home/cuini/developer/flutter-new/flutter/bin"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/.bin"
 export PATH="$PATH":"/snap/bin"

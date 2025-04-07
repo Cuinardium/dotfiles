@@ -26,3 +26,9 @@ colorscript -e blocks1
 
 trap "kill $SSH_AGENT_PID" 0
 export PATH=$PATH:/home/cuini/.spicetify
+
+# If /tmp/cwd.txt exists, cd to the directory it contains
+
+if [ -f /tmp/cwd.txt ]; then
+  cd "$(cat /tmp/cwd.txt)"
+fi
