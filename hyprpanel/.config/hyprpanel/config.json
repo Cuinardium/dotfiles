@@ -1,6 +1,6 @@
 {
-  "theme.font.name": "CozetteVector Nerd Font",
-  "theme.font.label": "CozetteVector Nerd Font",
+  "theme.font.name": "Iosevka Nerd Font",
+  "theme.font.label": "Iosevka Nerd Font",
   "theme.bar.buttons.modules.cpu.enableBorder": false,
   "menus.media.hideAuthor": false,
   "menus.media.hideAlbum": false,
@@ -8,7 +8,7 @@
   "menus.media.displayTimeTooltip": false,
   "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": false,
-  "theme.font.size": "1.1rem",
+  "theme.font.size": "1.0rem",
   "terminal": "alacritty",
   "theme.bar.menus.enableShadow": false,
   "theme.bar.floating": true,
@@ -482,5 +482,6 @@
   "menus.dashboard.shortcuts.left.shortcut2.command": "spotify",
   "menus.dashboard.shortcuts.left.shortcut4.command": "wofi --show dmenu",
   "wallpaper.enable": false,
-  "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m region --clipboard-only"
+  "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m region --clipboard-only",
+  "menus.dashboard.powermenu.avatar.image": "/home/cuini/Pictures/wallpapers/anime/5823589-2920x1640-desktop-hd-boy-programmer-wallpaper-image.jpg"
 }
