@@ -47,3 +47,18 @@ alias j22='sudo archlinux-java set java-22-openjdk'
 
 # Copilot cli
 eval "$(github-copilot-cli alias -- "$0")"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+alias cd="z"
+
+# Yazi Setup, con q me voy al directorio seleccionado, con Q no
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
