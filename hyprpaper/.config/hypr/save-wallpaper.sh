@@ -20,4 +20,4 @@ cp_no_overwrite() {
 }
 
 
-cp_no_overwrite /tmp/wallpaper /home/cuini/Pictures/wallpapers/fetched/wallpaper
+cp_no_overwrite /tmp/wallpaper /home/cuini/Pictures/wallpapers/.fetched/wallpaper
