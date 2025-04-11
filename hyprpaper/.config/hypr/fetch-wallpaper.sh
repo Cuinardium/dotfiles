@@ -5,7 +5,7 @@ URL="$1"
 
 # 2. Download the HTML and extract href from <a class="preview">
 echo "getting first page"
-preview_href=$(curl -s "$URL" | grep -oP '<a[^>]+class="preview"[^>]+href="\K[^"]+' | head -n 1)
+preview_href=$(http -b "$URL" | grep -oP '<a[^>]+class="preview"[^>]+href="\K[^"]+' | head -n 1)
 
 # Optional: make sure the URL is absolute
 if [[ $preview_href != http* ]]; then
@@ -18,7 +18,7 @@ echo "Preview page: $preview_url"
 
 # 3. Download the preview page and extract the image src from <img id="wallpaper">
 echo "getting second page"
-img_src=$(curl -s "$preview_url" | grep -oP '<img[^>]+id="wallpaper"[^>]+src="\K[^"]+')
+img_src=$(http -b "$preview_url" | grep -oP '<img[^>]+id="wallpaper"[^>]+src="\K[^"]+')
 
 # Optional: make sure the image URL is absolute
 if [[ $img_src != http* ]]; then
