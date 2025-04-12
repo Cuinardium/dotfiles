@@ -24,6 +24,8 @@ alias mk='ad'
 alias miller='clear && pv -qL 50 /home/cuini/Documents/ley-bases.txt'
 # eval $(thefuck --alias)
 
+
+alias fetch='fastfetch --config kirby'
 # docker sistemas operativos
 alias so-docker='docker run -v "${PWD}:/root" --platform linux/amd64 --cap-add=SYS_PTRACE --privileged -ti imnotgone/itba-so:latest'
 alias so-docker-bash='docker exec -ti $(docker ps | tail -n1 | cut -d " " -f 1) bash'
