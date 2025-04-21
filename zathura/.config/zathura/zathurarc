@@ -1,0 +1,9 @@
+# general settings
+set page-padding 0
+
+set selection-clipboard clipboard
+
+set recolor true
+
+# color scheme
+include catppuccin

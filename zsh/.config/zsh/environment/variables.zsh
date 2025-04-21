@@ -31,14 +31,3 @@ export TERMINAL="alacritty"
 
 export CHROME_EXECUTABLE="google-chrome-stable"
 export PAMPERO_USER="sballerini"
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-export PATH="/users/cuini/Library/Python/3.9/bin:$PATH"
-export PATH="$PATH:/Users/cuini/Developer/flutter/bin"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-export MANPAGER="nvim +Man!"
-
-trap "kill $SSH_AGENT_PID" 0
-
