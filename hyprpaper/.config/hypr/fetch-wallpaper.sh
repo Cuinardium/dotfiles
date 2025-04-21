@@ -31,8 +31,12 @@ fi
 echo "Image URL: $img_url"
 
 # 4. Download the image
-curl -L "$img_url" -o /tmp/wallpaper
+curl -L "$img_url" -o /tmp/wallpaper.jpg
 
 echo "Downloaded wallpaper.jpg"
 
-hyprctl hyprpaper reload , /tmp/wallpaper
+# 5. convert to catppucin
+
+gowall convert --batch /tmp/wallpaper.jpg --output /tmp/ -t catppuccin
+
+hyprctl hyprpaper reload , /tmp/wallpaper.jpg
