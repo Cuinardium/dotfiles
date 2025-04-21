@@ -4,6 +4,7 @@
 	process = git-lfs filter-process
 	required = true
 [user]
+
 	name = Santiago Ballerini
 	email = sballerini@itba.edu.ar
 

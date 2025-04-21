@@ -2,13 +2,6 @@
 local lualine = Load_Plugin("lualine")
 local navic = Load_Plugin("nvim-navic")
 
-local lualine_theme = 'gruvbox-material'
-if COLORSCHEME == 'catppuccin-latte' then
-    lualine_theme = 'catppuccin-latte'
-elseif COLORSCHEME == 'catppuccin-mocha' then
-    lualine_theme = 'catppuccin-mocha'
-end
-
 -- Config
 navic.setup {
     highlight = true
@@ -17,7 +10,7 @@ navic.setup {
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = lualine_theme,
+        theme = 'auto',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = { 'NvimTree', 'alpha' },

@@ -1,0 +1,125 @@
+html {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  color: #fdf6e3;
+  background: #2d353b;
+  font-family: 'SF Pro Text';
+  margin-right: 9em;
+  padding: 1em;
+}
+
+img {
+  height: 660px;
+  width: 440px;
+  margin-right: 2em;
+  margin-left: 2em;
+  border-radius: 12px;
+  border: 1px solid rgba(30, 35, 38, 1.0);
+  box-shadow: 0 4px 8px 0 rgba(30, 35, 38, 0.2), 0 6px 20px 0 rgba(30, 35, 38, 0.19);
+}
+
+nav {
+  display: grid;
+  grid-row-gap: 2em;
+  grid-column-gap: 3em;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-width: 28em;
+  grid-auto-rows: max-content;
+}
+
+h1 {
+  font-size: 2.2em;
+  font-family: SF Pro Display;
+  color:#fbf1c7;
+  font-weight: 600;
+  grid-column: 1/-1;
+  text-align: center;
+  margin-bottom:0.2em;
+  margin-top:2.4em;
+}
+
+ul {
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  list-style-type: none;
+}
+
+li {
+  line-height: 1.4em;
+  margin-left: 4.8em;
+}
+
+l1:first-child {
+  display: inline-block;
+  color: #e67e80;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2em;
+  margin-left: 3.2em;
+}
+l2:first-child {
+  display: inline-block;
+  color: #a7c080;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2em;
+  margin-left: 3.2em;
+}
+l3:first-child {
+  display: inline-block;
+  color: #dbbc7f;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2em;
+  margin-left: 3.2em;
+}
+l4:first-child {
+  display: inline-block;
+  color: #7fbbb3;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2em;
+  margin-left: 3.2em;
+}
+l5:first-child {
+  display: inline-block;
+  color: #d699b6;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2em;
+  margin-left: 3.2em;
+}
+l6:first-child {
+  display: inline-block;
+  color: #83c092;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2em;
+  margin-left: 3.2em;
+}
+a {
+  color: #e0dcc7;
+  font-size: 1.1em;
+  font-family: SF Pro Display;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #d3c6aa;
+  font-weight: 500;
+}
+

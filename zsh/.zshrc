@@ -32,3 +32,4 @@ export PATH=$PATH:/home/cuini/.spicetify
 if [ -f /tmp/cwd.txt ]; then
   cd "$(cat /tmp/cwd.txt)"
 fi
+

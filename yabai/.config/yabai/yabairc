@@ -8,20 +8,16 @@ declare -A gaps
 declare -A color
 
 gaps["top"]="02"
-gaps["bottom"]="02"
-gaps["left"]="02"
-gaps["right"]="02"
+gaps["bottom"]="10"
+gaps["left"]="12"
+gaps["right"]="12"
 gaps["inner"]="10"
-
-color["focused"]="0xE08080dd"
-color["normal"]="0x00010101"
-color["preselect"]="0xE02d74da"
 
 # Uncomment to refresh ubersicht widget on workspace change
 # Make sure to replace WIDGET NAME for the name of the ubersicht widget
 #ubersicht_spaces_refresh_command="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"WIDGET NAME\"'"
 
-# ===== yLoading Scripting Additions ============
+# ===== Loading Scripting Additions ============
 
 # See: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur---automatically-load-scripting-addition-on-startup
 sudo yabai --load-sa
@@ -30,8 +26,9 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 # ===== Tiling setting =========================
 
 yabai -m config layout                      bsp
+yabai -m config window_insertion_point      focused
 
-yabai -m config external_bar                 all:28:0
+yabai -m config external_bar                 all:37:0
 
 yabai -m config top_padding                 "${gaps["top"]}"
 yabai -m config bottom_padding              "${gaps["bottom"]}"
@@ -39,32 +36,51 @@ yabai -m config left_padding                "${gaps["left"]}"
 yabai -m config right_padding               "${gaps["right"]}"
 yabai -m config window_gap                  "${gaps["inner"]}"
 
-yabai -m config mouse_follows_focus         off
-yabai -m config focus_follows_mouse         off
+# Borders
+borders active_color=0xffa7c080 inactive_color=0x00000000 width=4.0 style=round &
 
-yabai -m config window_topmost              off
-yabai -m config window_opacity              off
-yabai -m config window_shadow               off
-
-yabai -m config window_border               off
-#yabai -m config window_border_width         1
-#yabai -m config active_window_border_color  "${color["focused"]}"
-#yabai -m config normal_window_border_color  "${color["normal"]}"
-#yabai -m config insert_feedback_color       "${color["preselect"]}"
-
-yabai -m config active_window_opacity       1.0
+# Transparency
+yabai -m config window_opacity              on
+yabai -m config active_window_opacity       0.9
 yabai -m config normal_window_opacity       0.90
+
 yabai -m config split_ratio                 0.50
 
 yabai -m config auto_balance                off
 
-yabai -m config mouse_modifier              fn
+yabai -m config mouse_modifier              alt
 yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
+yabai -m config focus_follows_mouse         autofocus
+
+# ===== WorkSpaces ================================
+
+function setup_space {
+  local idx="$1"
+  local name="$2"
+  local space=
+  echo "setup space $idx : $name"
+
+  space=$(yabai -m query --spaces --space "$idx")
+  if [ -z "$space" ]; then
+    yabai -m space --create
+  fi
+
+  yabai -m space "$idx" --label "$name"
+}
+
+setup_space 1 music
+setup_space 2 chat
+setup_space 3 notes
+setup_space 4 browser
+setup_space 5 code
+setup_space 6 other
 
 # ===== Rules ==================================
 # Floating
-yabai -m rule --add app="^Finder$"  sticky=on layer=above manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^finder$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
 yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
@@ -80,24 +96,32 @@ yabai -m rule --add label="RiotClient" app="^RiotClient$" manage=off
 yabai -m rule --add label="League of Legends" app="^League of Legends$" manage=off
 
 
-# Transparency
-yabai -m rule --add app="Code" opacity=0.9
-yabai -m rule --add app="Discord" opacity=0.9
-yabai -m rule --add app="IntelliJ" opacity=0.9
-yabai -m rule --add app="CLion" opacity=0.9
-yabai -m rule --add app="^iTerm2$" opacity=0.9
-yabai -m rule --add app="Chrome$" opacity=0.9
-yabai -m rule --add app="kitty" opacity=0.9
+# Spaces
+yabai -m rule --add app="^Music$" space=1
+yabai -m rule --add app="^Spotify$" space=1
+
+yabai -m rule --add app="^Discord$" space=2
+yabai -m rule --add app="^Telegram$" space=2
+
+yabai -m rule --add app="^Obsidian$" space=^3
+
+yabai -m rule --add app="^Safari$" space=^4
+yabai -m rule --add app="^Firefox$" space=^4
+
 
 # ===== Signals ================================
 
-yabai -m signal --add event=application_front_switched action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=display_changed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=space_changed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_created action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_destroyed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_focused action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_title_changed action="${ubersicht_spaces_refresh_command}"
+## If I close the active window, focus on any other visible window.
+yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
+
+# yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+# yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+# yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=application_front_switched action="sketchybar --trigger title_change"
+# yabai -m signal --add event=window_focused action="sketchybar --trigger title_change"
+# yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change" active=yes
+
 
 set +x
 printf "yabai: configuration loaded...\\n"

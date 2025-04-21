@@ -24,3 +24,6 @@ The current config expects one in the `hyprpanel` config directory.
 - [LierB/fastfetch](https://github.com/LierB/fastfetch) (arch fetch preset)
 - [mac rice](https://www.reddit.com/r/unixporn/comments/jupmda/aquayabai_a_fun_colorful_rice_to_brighten_my/) (mac rice inspiration)
 - [adi1090x/rofi](https://github.com/adi1090x/rofi?tab=readme-ov-file) (rofi theme inspiration)
+- [pivoshenko](https://github.com/pivoshenko/catppuccin-startpage) (arch firefox startpage)
+- [ninepointeight](https://codeberg.org/nine_point_eight/config-files) (mac firefox startpage)
+- [CriticalElement](https://github.com/CriticalElement/dotfiles) (mac status bar inspiration)

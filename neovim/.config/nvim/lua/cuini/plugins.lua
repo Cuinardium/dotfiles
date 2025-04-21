@@ -157,9 +157,10 @@ return packer.startup(function(use)
 
     -- Colorschemes
     use "sainnhe/gruvbox-material"
-    use "sainnhe/everforest"
     use 'folke/lsp-colors.nvim'                                                                    -- colors for lsp diagnostics
     use 'catppuccin/nvim'
+    use "neanias/everforest-nvim"
+    use 'folke/lsp-colors.nvim' -- colors for lsp diagnostics
     use { "iamcco/markdown-preview.nvim", run = "cd app && npm install", cmd = "MarkdownPreview" } -- Markdown previewer
 
     -- Motion
