@@ -5,7 +5,7 @@ local lualine = Load_Plugin("lualine")
 lualine.setup {
     options = {
         icons_enabled = true,
-        theme = 'gruvbox-material',
+        theme = 'auto',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = { 'NvimTree', 'alpha' },
