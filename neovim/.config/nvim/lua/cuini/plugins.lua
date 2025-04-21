@@ -81,7 +81,7 @@ return packer.startup(function(use)
     use "folke/neodev.nvim"                     -- lua nvim lsp config
     use "neovim/nvim-lspconfig"                 -- enable LSP
     use "williamboman/nvim-lsp-installer"       -- simple to use language server installer
-    use "jose-elias-alvarez/null-ls.nvim"       -- for formaters and linters
+    use "nvimtools/none-ls.nvim"                -- for formaters and linters
     use "ericpubu/lsp_codelens_extensions.nvim" -- for code lenses
     use "mfussenegger/nvim-jdtls"               -- jdtls
     use "simrat39/rust-tools.nvim"              -- rust tools
@@ -157,7 +157,6 @@ return packer.startup(function(use)
 
     -- Colorschemes
     use "sainnhe/gruvbox-material"
-    use 'folke/lsp-colors.nvim'                                                                    -- colors for lsp diagnostics
     use 'catppuccin/nvim'
     use "neanias/everforest-nvim"
     use 'folke/lsp-colors.nvim' -- colors for lsp diagnostics
