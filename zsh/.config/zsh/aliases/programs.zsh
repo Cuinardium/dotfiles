@@ -22,6 +22,9 @@ alias weather='curl wttr.in/BuenosAires\?0nqf'
 alias tuki='echo tuki | cowsay -f bud-frogs | lolcat'
 alias mk='ad'
 alias miller='clear && pv -qL 50 /home/cuini/Documents/ley-bases.txt'
+alias spotify='spotify_player'
+alias visualizer='cava'
+alias clock='tuime -c Magenta'
 # eval $(thefuck --alias)
 
 
@@ -46,9 +49,6 @@ alias j8='sudo archlinux-java set java-8-openjdk'
 alias j11='sudo archlinux-java set java-11-openjdk'
 alias j17='sudo archlinux-java set java-17-openjdk'
 alias j22='sudo archlinux-java set java-22-openjdk'
-
-# Copilot cli
-eval "$(github-copilot-cli alias -- "$0")"
 
 # Zoxide
 eval "$(zoxide init zsh)"

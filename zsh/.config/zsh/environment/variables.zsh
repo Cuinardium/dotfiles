@@ -8,6 +8,15 @@ export PATH="$PATH":"/snap/bin"
 export PATH="$PATH":"/var/lib/snapd/snap/bin"
 export PATH="$PATH":"/home/cuini/developer/idea-IU-231.8109.175/bin"
 
+
+# pnpm
+export PNPM_HOME="/home/cuini/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
