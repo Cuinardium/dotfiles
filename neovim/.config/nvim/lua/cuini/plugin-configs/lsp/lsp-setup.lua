@@ -1,6 +1,6 @@
 -- Safe load nvim-lsp-installer && handler
-local lsp_installer = require("nvim-lsp-installer")
 local handler = Load_File("cuini.plugin-configs.lsp.handlers")
+local mason = Load_Plugin("mason")
 local lspconfig = Load_Plugin("lspconfig")
 local neodev = Load_Plugin("neodev")
 local rust_tools = Load_Plugin("rust-tools")
@@ -27,8 +27,7 @@ local servers = {
 }
 
 neodev.setup()
-
-lsp_installer.setup {}
+mason.setup {}
 
 local keymap = vim.keymap.set
 local key_opts = { silent = true }

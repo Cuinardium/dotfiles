@@ -80,7 +80,7 @@ return packer.startup(function(use)
     -- LSP
     use "folke/neodev.nvim"                     -- lua nvim lsp config
     use "neovim/nvim-lspconfig"                 -- enable LSP
-    use "williamboman/nvim-lsp-installer"       -- simple to use language server installer
+    use "williamboman/mason.nvim"                    -- instala programas que va a usar nvim
     use "nvimtools/none-ls.nvim"                -- for formaters and linters
     use "ericpubu/lsp_codelens_extensions.nvim" -- for code lenses
     use "mfussenegger/nvim-jdtls"               -- jdtls

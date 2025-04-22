@@ -1,10 +1,4 @@
 ## 
-bspwm/.config/bspwm/picom.conf
-bspwm/.config/bspwm/dunstrc
-bspwm/.config/bspwm/.rice
-alacritty/.config/alacritty/colors.yml
+neovim/.config/nvim/plugin/packer_compiled.lua
 
 
-ranger/.config/ranger/colorschemes/__pycache__/*
-ranger/.config/ranger/plugins/__pycache__/*
-ranger/.config/ranger/plugins/ranger_devicons/__pycache__/*
