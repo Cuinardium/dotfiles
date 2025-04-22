@@ -27,9 +27,9 @@ o.writebackup = false                     -- if a file is being edited by anothe
 o.expandtab = true                        -- convert tabs to spaces
 o.shiftwidth = 4                          -- the number of spaces inserted for each indentation
 o.tabstop = 4                             -- insert 2 spaces for a tab
-o.cursorline = false                       -- highlight the current line
+o.cursorline = false                      -- highlight the current line
 o.number = true                           -- set numbered lines
-o.relativenumber = true                  -- set relative numbered lines
+o.relativenumber = true                   -- set relative numbered lines
 o.numberwidth = 2                         -- set number column width to 2 {default 4}
 --o.signcolumn = "yes"                      -- always show the sign column, otherwise it would shift the text each time
 o.wrap = false                            -- display lines as one long line
@@ -47,8 +47,7 @@ vim.cmd [[set fillchars+=eob:\ ]] -- remove tildes at the end of the file
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
 -- Autocommands, add 2 space indenting for js, ts and tsx files
-vim.cmd [[autocmd FileType javascript setlocal shiftwidth=2 tabstop=2]] 
+vim.cmd [[autocmd FileType javascript setlocal shiftwidth=2 tabstop=2]]
 vim.cmd [[autocmd FileType typescript setlocal shiftwidth=2 tabstop=2]]
 vim.cmd [[autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2]]
 vim.cmd [[autocmd FileType java setlocal shiftwidth=2 tabstop=2]]
-
