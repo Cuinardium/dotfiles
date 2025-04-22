@@ -16,14 +16,6 @@ for f in ~/.config/zsh/environment/*; do source $f; done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-
-colorscript -e blocks1
-
-# xrandr --output HDMI-0 --output DP-5 --left-of HDMI-0
-
-# ./.config/polybar/blocks/launch.sh
-
 trap "kill $SSH_AGENT_PID" 0
 export PATH=$PATH:/home/cuini/.spicetify
 
