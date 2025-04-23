@@ -140,7 +140,7 @@ return { {
                 button("e", "   Create", ":ene <BAR> startinsert<CR>"),
                 button("t", "   Typing", ":Typr<CR>"),
                 button("u", "   Update", ":Lazy sync<CR>"),
-                button("c", "   Config", ":execute 'cd /home/cuini/.config/nvim'<CR>:e ~/.config/nvim/<CR>"),
+                button("c", "   Config", ":execute 'cd ~/.config/nvim'<CR>:e ~/.config/nvim/<CR>"),
                 button("q", "   Quit", ":qa!<CR>"),
             },
             opts = {
