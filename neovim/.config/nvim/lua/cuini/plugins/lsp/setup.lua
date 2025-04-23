@@ -48,10 +48,10 @@ local function lsp_keymaps(event)
     map('<leader>gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
     -- Fuzzy find all the symbols in your current document.
-    map('<leader>gs', telescope_builtin.lsp_document_symbols, '[G]oto [S]ymbols')
+    map('<leader>fs', telescope_builtin.lsp_document_symbols, '[F]ind [S]ymbols')
 
     -- Fuzzy find all the symbols in your current workspace.
-    map('<leader>gS', telescope_builtin.lsp_workspace_symbols, '[G]oto [S]ymbols in Workspace')
+    map('<leader>fS', telescope_builtin.lsp_workspace_symbols, '[F]ind [S]ymbols in Workspace')
 
     -- Jump to the type of the word under your cursor.
     map('<leader>gt', vim.lsp.buf.type_definition, '[G]oto [T]ype Definition')
@@ -227,6 +227,10 @@ return {
             mason_tool_installer.setup { ensure_installed = ensure_installed }
 
             local mason_lspconfig = Load_Plugin("mason-lspconfig")
+            
+            -- Nvim java setup
+            Load_Plugin("java").setup()
+
             local lsp_config = Load_Plugin("lspconfig")
             local navic = Load_Plugin("nvim-navic")
             mason_lspconfig.setup {

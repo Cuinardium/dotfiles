@@ -141,7 +141,7 @@ return { {
                 button("f", "   Search", ":Telescope find_files<CR>"),
                 button("e", "   Create", ":ene <BAR> startinsert<CR>"),
                 button("u", "   Update", ":Lazy sync<CR>"),
-                button("c", "   Config", ":e ~/.config/nvim/<CR>"),
+                button("c", "   Config", ":execute 'cd /home/cuini/.config/nvim'<CR>:e ~/.config/nvim/<CR>"),
                 button("q", "   Quit", ":qa!<CR>"),
             },
             opts = {

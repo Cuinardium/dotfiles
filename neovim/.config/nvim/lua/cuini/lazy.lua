@@ -17,14 +17,14 @@ local lazy = Load_Plugin("lazy")
 lazy.setup({
 
     -- General plugins
-    { "nvim-lua/popup.nvim" },                                     -- an implementation of the Popup API from vim in Neovim
-    { "nvim-lua/plenary.nvim" },                                   -- useful lua functions used by lots of plugins
-    { "vigoux/notifier.nvim",        opts = {} },                  -- notifications
+    { "nvim-lua/popup.nvim" },                                           -- an implementation of the Popup API from vim in Neovim
+    { "nvim-lua/plenary.nvim" },                                         -- useful lua functions used by lots of plugins
+    { "vigoux/notifier.nvim",        opts = {} },                        -- notifications
     { "windwp/nvim-autopairs",       event = 'InsertEnter', opts = {} }, -- autopairs
-    { "kyazdani42/nvim-web-devicons" },                            -- icons for other plugind
-    { "famiu/bufdelete.nvim" },                                    -- delete buffer
+    { "kyazdani42/nvim-web-devicons" },                                  -- icons for other plugind
+    { "famiu/bufdelete.nvim" },                                          -- delete buffer
     {
-        "3rd/image.nvim",                                          -- image previewer
+        "3rd/image.nvim",                                                -- image previewer
         build = false,
         opts = {
             processor = "magick_cli"
@@ -45,10 +45,10 @@ lazy.setup({
     require("cuini.plugins.startup-screen"), -- startup screen
 
     -- LSP
-    require("cuini.plugins.lsp.none-ls"),        -- para linters y formatters
-    require("cuini.plugins.lsp.lazydev"),        -- para el lsp de lua con nvim
-    { "mfussenegger/nvim-jdtls",  ft = "java" }, -- jdtls
-    require("cuini.plugins.lsp.setup"),          -- config del resto de language servers
+    require("cuini.plugins.lsp.none-ls"), -- para linters y formatters
+    require("cuini.plugins.lsp.lazydev"), -- para el lsp de lua con nvim
+    { "nvim-java/nvim-java",      ft = "java" }, -- java
+    require("cuini.plugins.lsp.setup"),   -- config del resto de language servers
 
     -- Autocomplete
     require('cuini.plugins.autocomplete'), -- Engine de autocompletado
@@ -92,7 +92,7 @@ lazy.setup({
 
     -- Git
     {
-        "lewis6991/gitsigns.nvim",   -- git integration
+        "lewis6991/gitsigns.nvim", -- git integration
         opts = {
             signs = {
                 add          = { text = '┃' },
