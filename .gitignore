@@ -1,6 +1,7 @@
 ## 
 neovim/.config/nvim/plugin/packer_compiled.lua
 zsh/.config/zsh/environment/credentials.zsh
+zsh/.config/zsh/plugins/*
 sketchybar/.config/sketchybar/scripts/weather.env.sh
 tmux/.config/tmux/plugins/*
 
