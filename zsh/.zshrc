@@ -5,7 +5,7 @@ for f in ~/.config/zsh/include/*; do source $f; done
 source ~/.config/zsh/plugins/source_plugins.zsh
 
 # Themes
-source ~/.config/zsh/themes/wedisagree.zsh
+source ~/.config/zsh/themes/starship.zsh
 
 # Aliases
 for f in ~/.config/zsh/aliases/*; do source $f; done
