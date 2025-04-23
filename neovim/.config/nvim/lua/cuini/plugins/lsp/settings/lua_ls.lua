@@ -1,9 +1,3 @@
---local withoutchecknil = require 'without-check-nil'
-
---withoutchecknil.enable()
-
-local handler = Load_File("cuini.plugin-configs.lsp.handlers")
-
 return {
     settings = {
         Lua = {
@@ -19,6 +13,4 @@ return {
             },
         },
     },
-    on_attach = handler.on_attach,
-    capabilities = handler.capabilities,
 }

@@ -31,7 +31,7 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>e", ":lua MiniFiles.open()<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -101,7 +101,7 @@ keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Formatting --
-keymap("n", "<leader>F", ":Format<cr>", opts)
+keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- Session Manager
 keymap("n", "<leader>ss", "<cmd>SessionManager save_current_session<cr>", opts)

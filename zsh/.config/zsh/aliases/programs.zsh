@@ -48,7 +48,7 @@ alias mongo-server="mongosh --host 192.168.0.31 -u cuini -p secreto --authentica
 alias j8='sudo archlinux-java set java-8-openjdk'
 alias j11='sudo archlinux-java set java-11-openjdk'
 alias j17='sudo archlinux-java set java-17-openjdk'
-alias j22='sudo archlinux-java set java-22-openjdk'
+alias j21='sudo archlinux-java set java-21-openjdk'
 
 # Zoxide
 eval "$(zoxide init zsh)"

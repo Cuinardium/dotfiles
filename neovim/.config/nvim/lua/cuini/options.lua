@@ -40,14 +40,3 @@ o.guifont = "monospace:h17"               -- the font used in graphical neovim a
 o.shortmess:append "c"
 
 vim.cmd [[set fillchars+=eob:\ ]] -- remove tildes at the end of the file
-
--- Tambien se pueden setear opciones usando vimscript:
--- vim.cmd "set whichwrap+=<,>,[,],h,l"
--- vim.cmd [[set iskeyword+=-]]
--- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
-
--- Autocommands, add 2 space indenting for js, ts and tsx files
-vim.cmd [[autocmd FileType javascript setlocal shiftwidth=2 tabstop=2]]
-vim.cmd [[autocmd FileType typescript setlocal shiftwidth=2 tabstop=2]]
-vim.cmd [[autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2]]
-vim.cmd [[autocmd FileType java setlocal shiftwidth=2 tabstop=2]]

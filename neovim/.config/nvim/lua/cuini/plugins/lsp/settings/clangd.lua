@@ -1,5 +1,3 @@
-local handler = Load_File("cuini.plugin-configs.lsp.handlers")
-
 return {
   cmd = {
     -- see clangd --help-hidden
@@ -19,6 +17,4 @@ return {
     completeUnimported = true,
     semanticHighlighting = true,
   },
-  on_attach = handler.on_attach,
-  capabilities = handler.capabilities,
 }
