@@ -8,6 +8,18 @@ export PATH="$PATH":"/snap/bin"
 export PATH="$PATH":"/var/lib/snapd/snap/bin"
 export PATH="$PATH":"/home/cuini/developer/idea-IU-231.8109.175/bin"
 
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export PATH="/users/cuini/Library/Python/3.9/bin:$PATH"
+export PATH="$PATH:/Users/cuini/Developer/flutter/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH="$PATH":"$HOME/Developer/nvim-macos/bin"
+export PATH="$PATH":"/opt/homebrew/bin/google-java-format"
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+export CPATH="/Users/cuini/Repos/TPE-Arqui/Userland/shell/include/*:$PATH"
+export CPLUS_INCLUDE_PATH=":/usr/local/include"
+
+
+export SSH_CONFIG_FILE="/Users/cuini/.ssh/config"
 
 # pnpm
 export PNPM_HOME="/home/cuini/.local/share/pnpm"
