@@ -108,6 +108,8 @@ yabai -m rule --add app="^Obsidian$" space=^3
 yabai -m rule --add app="^Safari$" space=^4
 yabai -m rule --add app="^Firefox$" space=^4
 
+yabai -m rule --add app="^Ghostty$" space=^5
+
 
 # ===== Signals ================================
 

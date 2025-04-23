@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-open -na "/Applications/Ghostty.app"
+open "/Applications/Ghostty.app"
