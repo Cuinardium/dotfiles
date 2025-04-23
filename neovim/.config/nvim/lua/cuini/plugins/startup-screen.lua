@@ -135,11 +135,10 @@ return { {
         local buttons = {
             type = "group",
             val = {
-                button("s", "   Sessions", ":SessionManager load_session<CR>"),
                 button("r", "   Recents", ":Telescope oldfiles<CR>"),
-                button("p", "   Projects", ":Telescope project<CR>"),
                 button("f", "   Search", ":Telescope find_files<CR>"),
                 button("e", "   Create", ":ene <BAR> startinsert<CR>"),
+                button("t", "   Typing", ":Typr<CR>"),
                 button("u", "   Update", ":Lazy sync<CR>"),
                 button("c", "   Config", ":execute 'cd /home/cuini/.config/nvim'<CR>:e ~/.config/nvim/<CR>"),
                 button("q", "   Quit", ":qa!<CR>"),

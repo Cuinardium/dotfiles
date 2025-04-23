@@ -60,7 +60,7 @@ local function lsp_keymaps(event)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "LSP: Hover Documentation" })
 
     -- Signature help.
-    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature Help" })
+    vim.keymap.set("n", "<leader>lk", vim.lsp.buf.signature_help, { buffer = event.buf, desc = "LSP: Signature Help" })
 end
 
 -- ===================== Highlights ===============================

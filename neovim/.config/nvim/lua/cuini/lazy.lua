@@ -40,15 +40,21 @@ lazy.setup({
         },
         event = "VimEnter",
     },
+    {
+        "nvzone/typr", -- Typing game
+        dependencies = "nvzone/volt",
+        opts = {},
+        cmd = { "Typr", "TyprStats" },
+    },
     require("cuini.plugins.mini"),           -- mini ecosystem
     require("cuini.plugins.lualine"),        -- better statusline
     require("cuini.plugins.startup-screen"), -- startup screen
 
     -- LSP
-    require("cuini.plugins.lsp.none-ls"), -- para linters y formatters
-    require("cuini.plugins.lsp.lazydev"), -- para el lsp de lua con nvim
+    require("cuini.plugins.lsp.none-ls"),        -- para linters y formatters
+    require("cuini.plugins.lsp.lazydev"),        -- para el lsp de lua con nvim
     { "nvim-java/nvim-java",      ft = "java" }, -- java
-    require("cuini.plugins.lsp.setup"),   -- config del resto de language servers
+    require("cuini.plugins.lsp.setup"),          -- config del resto de language servers
 
     -- Autocomplete
     require('cuini.plugins.autocomplete'), -- Engine de autocompletado
@@ -67,7 +73,7 @@ lazy.setup({
                 auto_trigger = false,
                 keymap = {
                     accept = "<C-a>",
-                    next   = "<C-s>"
+                    next   = "<C-c>"
                 }
             },
             panel = {
@@ -114,4 +120,24 @@ lazy.setup({
 
     -- Highlight todo, notes, etc in comments
     { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+    -- TMUX navigation integration
+    {
+        "christoomey/vim-tmux-navigator",
+        cmd = {
+            "TmuxNavigateLeft",
+            "TmuxNavigateDown",
+            "TmuxNavigateUp",
+            "TmuxNavigateRight",
+            "TmuxNavigatePrevious",
+            "TmuxNavigatorProcessList",
+        },
+        keys = {
+            { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+            { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+            { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+            { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+            { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+        },
+    }
 })
