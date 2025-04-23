@@ -6,7 +6,7 @@ Load_Plugin('catppuccin').setup({
 
 -- Set colorscheme
 
-COLORSCHEME = "catppuccin-mocha"
+COLORSCHEME = "everforest"
 
 -- Llamado seguro, equivalente a vim.cmd "colorschme ..."
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. COLORSCHEME)
