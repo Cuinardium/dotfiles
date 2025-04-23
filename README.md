@@ -15,8 +15,17 @@ Personal configurations for my development environment both for `macOS` and `arc
 
 ## Considerations
 
+Some `macOS` configurations conflict with the ones used for `arch`. Use the `mac` branch to override the `arch` settings.
+
 For `hyprpanel` weather module a [weatherapi](https://www.weatherapi.com/) api key is needed. See [here](https://www.weatherapi.com/). 
 The current config expects one in the `hyprpanel` config directory.
+
+For `sketchybar` weather module a [weatherapi](https://www.weatherapi.com/) api key is also needed. 
+Create a file called `weather.env.sh` in `.config/sketchybar/scripts` that defines two variables:
+- **KEY**: which should be your **API** key
+- **CITY**: which is the city to show the weather for.
+
+See more details [here](https://github.com/CriticalElement/dotfiles). 
 
 ## Credits
 
