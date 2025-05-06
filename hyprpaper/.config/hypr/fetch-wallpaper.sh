@@ -2,6 +2,7 @@
 
 # 1. Set the starting URL
 URL="$1"
+CONVERT="$2"
 
 # 2. Download the HTML and extract href from <a class="preview">
 echo "getting first page"
@@ -31,12 +32,16 @@ fi
 echo "Image URL: $img_url"
 
 # 4. Download the image
-curl -L "$img_url" -o /tmp/wallpaper.jpg
+curl -L "$img_url" -o /tmp/wallpaper
 
 echo "Downloaded wallpaper.jpg"
 
 # 5. convert to catppucin
 
-gowall convert --batch /tmp/wallpaper.jpg --output /tmp/ -t catppuccin
+if CONVERT; then
+    mv /tmp/wallpaper /tmp/wallpaper.jpg
+    gowall convert --batch /tmp/wallpaper.jpg --output /tmp/ -t catppuccin
+    mv /tmp/wallpaper.jpg /tmp/wallpaper
+fi
 
-hyprctl hyprpaper reload , /tmp/wallpaper.jpg
+hyprctl hyprpaper reload , /tmp/wallpaper
