@@ -1,3 +1,4 @@
+--- @type vim.lsp.Config
 return {
   cmd = {
     -- see clangd --help-hidden

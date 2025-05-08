@@ -1,7 +1,6 @@
 --  ======= Keymaps =================
 
 local function lsp_keymaps(event)
-
     local map = function(keys, func, desc, mode)
         mode = mode or 'n'
         vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
@@ -121,50 +120,15 @@ local function lsp_highlights(event)
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
         end, '[L]sp [H]ints')
     end
-    
 end
-
--- ============= Diagnostics ======================
-
-local function lsp_diagnostics()
-    -- Diagnostic Config
-    -- See :help vim.diagnostic.Opts
-    vim.diagnostic.config {
-        severity_sort = true,
-        float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
-        signs = {
-            text = {
-                [vim.diagnostic.severity.ERROR] = '󰅚 ',
-                [vim.diagnostic.severity.WARN] = '󰀪 ',
-                [vim.diagnostic.severity.INFO] = '󰋽 ',
-                [vim.diagnostic.severity.HINT] = '󰌶 ',
-            },
-        } ,
-        virtual_text = {
-            source = 'if_many',
-            spacing = 2,
-            format = function(diagnostic)
-                local diagnostic_message = {
-                    [vim.diagnostic.severity.ERROR] = diagnostic.message,
-                    [vim.diagnostic.severity.WARN] = diagnostic.message,
-                    [vim.diagnostic.severity.INFO] = diagnostic.message,
-                    [vim.diagnostic.severity.HINT] = diagnostic.message,
-                }
-                return diagnostic_message[diagnostic.severity]
-            end,
-        },
-    }
-end
-
 
 
 return {
     {
         "neovim/nvim-lspconfig",                         -- para configurar el cliente lsp de nvim
         dependencies = {
-            { "williamboman/mason.nvim", opts = {} },    -- instala programas que va a usar nvim
-            'williamboman/mason-lspconfig.nvim',         -- para que los configs de lsp-config usen los nombres de mason
+            { "mason-org/mason.nvim", opts = {} },       -- instala programas que va a usar nvim
+            'mason-org/mason-lspconfig.nvim',            -- para que los configs de lsp-config usen los nombres de mason
             'WhoIsSethDaniel/mason-tool-installer.nvim', --
             {
                 "j-hui/fidget.nvim",                     -- for useful lsp status updates
@@ -172,12 +136,10 @@ return {
                     -- options
                 },
             },
-            'saghen/blink.cmp', -- for autocompletion capabilities for lsp client
+            'saghen/blink.cmp',    -- for autocompletion capabilities for lsp client
             'SmiteshP/nvim-navic', -- for winbar
         },
         config = function()
-
-
             --  This function gets run when an LSP attaches to a particular buffer.
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -187,30 +149,55 @@ return {
                 end,
             })
 
-            lsp_diagnostics()
 
-            local capabilities = Load_Plugin('blink.cmp').get_lsp_capabilities()
 
-            -- ACA AGREGAR LSP, fijarse los que soporta mason
-            local servers = {
-                lua_ls = Load_File("cuini.plugins.lsp.settings.lua_ls"),
-                clangd = Load_File("cuini.plugins.lsp.settings.clangd"),
-                html = Load_File("cuini.plugins.lsp.settings.html"),
-                zls = {},
-                cmake = {},
-                pyright = {},
-                bashls = {},
-                taplo = {},
-                lemminx = {},
-                cssls = {},
-                ts_ls = {},
-                rust_analyzer = {},
-                jdtls = {}
+            -- Diagnostic Config
+            -- See :help vim.diagnostic.Opts
+            vim.diagnostic.config {
+                severity_sort = true,
+                float = { border = 'rounded', source = 'if_many' },
+                underline = { severity = vim.diagnostic.severity.ERROR },
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = '󰅚 ',
+                        [vim.diagnostic.severity.WARN] = '󰀪 ',
+                        [vim.diagnostic.severity.INFO] = '󰋽 ',
+                        [vim.diagnostic.severity.HINT] = '󰌶 ',
+                    },
+                },
+                virtual_text = {
+                    source = 'if_many',
+                    spacing = 2,
+                    format = function(diagnostic)
+                        local diagnostic_message = {
+                            [vim.diagnostic.severity.ERROR] = diagnostic.message,
+                            [vim.diagnostic.severity.WARN] = diagnostic.message,
+                            [vim.diagnostic.severity.INFO] = diagnostic.message,
+                            [vim.diagnostic.severity.HINT] = diagnostic.message,
+                        }
+                        return diagnostic_message[diagnostic.severity]
+                    end,
+                },
             }
 
-            -- ACA AGREGAR (formatters, linters), fijarse los q soporta mason
-            local ensure_installed = vim.tbl_keys(servers or {})
-            vim.list_extend(ensure_installed, {
+            -- ACA AGREGAR LSP y linters/formatters, fijarse los que soporta mason
+            local tools = {
+                -- LSP
+                'lua_ls',
+                'clangd',
+                'html',
+                'zls',
+                'cmake',
+                'pyright',
+                'bashls',
+                'taplo',
+                'lemminx',
+                'cssls',
+                'ts_ls',
+                'rust_analyzer',
+                'jdtls',
+
+                -- Formatters y linters
                 'stylua', -- Used to format Lua code
                 'google-java-format',
                 'clang-format',
@@ -221,37 +208,36 @@ return {
 
                 -- web
                 'prettier',
-            })
+            }
 
             local mason_tool_installer = Load_Plugin("mason-tool-installer")
-            mason_tool_installer.setup { ensure_installed = ensure_installed }
+            mason_tool_installer.setup { ensure_installed = tools }
+
+
+            -- Nvim java setup
+            -- Load_Plugin("java").setup()
+
+
+            local navic = Load_Plugin("nvim-navic")
+            local function navic_on_attach(client, bufnr)
+                if client.server_capabilities.documentSymbolProvider then
+                    navic.attach(client, bufnr)
+                end
+            end
+
+
+            -- Default server configs
+            -- Specific configs automatically added by lspconfig
+            -- The specific config files should be added to after/lsp/ folder
+            vim.lsp.config('*', {
+                on_attach = navic_on_attach,
+            })
+
 
             local mason_lspconfig = Load_Plugin("mason-lspconfig")
-            
-            -- Nvim java setup
-            Load_Plugin("java").setup()
-
-            local lsp_config = Load_Plugin("lspconfig")
-            local navic = Load_Plugin("nvim-navic")
             mason_lspconfig.setup {
                 ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
                 automatic_installation = false,
-                handlers = {
-                    function(server_name)
-                        local server = servers[server_name] or {}
-                        -- This handles overriding only values explicitly passed
-                        -- by the server configuration above.
-                        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-
-                        local function default_on_attach(client, bufnr)
-                            if client.server_capabilities.documentSymbolProvider then
-                                navic.attach(client, bufnr)
-                            end
-                        end
-                        server.on_attach = default_on_attach
-                        lsp_config[server_name].setup(server)
-                    end,
-                },
             }
         end
     },
