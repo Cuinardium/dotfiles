@@ -46,6 +46,19 @@ lazy.setup({
         opts = {},
         cmd = { "Typr", "TyprStats" },
     },
+    {
+        "kawre/leetcode.nvim",
+        cmd = "Leet",
+        build = ":TSUpdate html", -- if you have `nvim-treesitter` installed
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+        },
+        opts = {
+            -- configuration goes here
+        },
+    },
     require("cuini.plugins.mini"),           -- mini ecosystem
     require("cuini.plugins.lualine"),        -- better statusline
     require("cuini.plugins.startup-screen"), -- startup screen

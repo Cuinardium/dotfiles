@@ -15,7 +15,10 @@ return { {
             "vimdoc",
             "python",
             "rust",
-            "markdown"
+            "markdown",
+            "markdown_inline",
+            "latex",
+            "html"
         },
         sync_install = false,
         highlight = {
