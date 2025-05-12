@@ -215,7 +215,14 @@ return {
 
 
             -- Nvim java setup
-            -- Load_Plugin("java").setup()
+            Load_Plugin("java").setup({
+                jdtls = {
+                    version = 'v1.46.1',
+                },
+                jdk = {
+                    auto_install = false,
+                },
+            })
 
 
             local navic = Load_Plugin("nvim-navic")
