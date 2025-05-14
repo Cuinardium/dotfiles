@@ -139,6 +139,7 @@ return { {
                 button("f", "   Search", ":Telescope find_files<CR>"),
                 button("e", "   Create", ":ene <BAR> startinsert<CR>"),
                 button("t", "   Typing", ":Typr<CR>"),
+                button("l", "   Leet", ":Leet<CR>"),
                 button("u", "   Update", ":Lazy sync<CR>"),
                 button("c", "   Config", ":execute 'cd ~/.config/nvim'<CR>:e ~/.config/nvim/<CR>"),
                 button("q", "   Quit", ":qa!<CR>"),
