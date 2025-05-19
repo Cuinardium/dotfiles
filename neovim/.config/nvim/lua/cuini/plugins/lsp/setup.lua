@@ -196,6 +196,7 @@ return {
                 'ts_ls',
                 'rust_analyzer',
                 'jdtls',
+                'terraform-ls',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code

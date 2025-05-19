@@ -18,7 +18,8 @@ return { {
             "markdown",
             "markdown_inline",
             "latex",
-            "html"
+            "html",
+            "hcl"
         },
         sync_install = false,
         highlight = {
