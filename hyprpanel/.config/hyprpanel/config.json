@@ -487,5 +487,8 @@
   "bar.customModules.ram.leftClick": "ghostty -e btop",
   "bar.customModules.cpu.leftClick": "ghostty -e btop",
   "menus.clock.weather.enabled": true,
-  "bar.customModules.weather.label": true
+  "bar.customModules.weather.label": true,
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
 }
