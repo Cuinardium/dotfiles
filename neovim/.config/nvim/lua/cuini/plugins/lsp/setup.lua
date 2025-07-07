@@ -197,6 +197,7 @@ return {
                 'rust_analyzer',
                 'jdtls',
                 'terraform-ls',
+                'checkmake',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code
@@ -216,14 +217,18 @@ return {
 
 
             -- Nvim java setup
-            Load_Plugin("java").setup({
-                jdtls = {
-                    version = 'v1.46.1',
-                },
-                jdk = {
-                    auto_install = false,
-                },
-            })
+            -- Load_Plugin("java").setup({
+            --     jdtls = {
+            --         version = 'v1.46.1',
+            --     },
+            --     jdk = {
+            --         auto_install = false,
+            --     },
+            -- })
+            -- For now it works like this
+            -- Env variable to let lsp-config configure lombok
+            vim.env.JDTLS_JVM_ARGS=
+                '-javaagent:' .. vim.fn.stdpath('data') .. '/mason/packages/jdtls/lombok.jar'
 
 
             local navic = Load_Plugin("nvim-navic")
