@@ -42,7 +42,7 @@ borders active_color=0xffa7c080 inactive_color=0x00000000 width=4.0 style=round 
 # Transparency
 yabai -m config window_opacity              on
 yabai -m config active_window_opacity       0.9
-yabai -m config normal_window_opacity       0.90
+yabai -m config normal_window_opacity       0.9
 
 yabai -m config split_ratio                 0.50
 
@@ -109,21 +109,6 @@ yabai -m rule --add app="^Safari$" space=^4
 yabai -m rule --add app="^Firefox$" space=^4
 
 yabai -m rule --add app="^Ghostty$" space=^5
-
-
-# ===== Signals ================================
-
-## If I close the active window, focus on any other visible window.
-yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
-
-# yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
-# yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
-# yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
-yabai -m signal --add event=application_front_switched action="sketchybar --trigger title_change"
-# yabai -m signal --add event=window_focused action="sketchybar --trigger title_change"
-# yabai -m signal --add event=window_title_changed action="sketchybar --trigger title_change" active=yes
-
 
 set +x
 printf "yabai: configuration loaded...\\n"
