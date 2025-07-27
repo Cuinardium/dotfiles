@@ -84,7 +84,7 @@ local function set_indent(filetypes, shiftwidth, tabstop)
 end
 
 -- Apply 2-space indent to specified filetypes
-set_indent({ "javascript", "typescript", "typescriptreact" }, 2, 2)
+set_indent({ "javascript", "typescript", "typescriptreact", "c", "cpp" }, 2, 2)
 
 -- Apply 4-space indent to specified filetypes
 set_indent({ "python", "html", "css", "lua", "json", "java" }, 4, 4)

@@ -11,6 +11,7 @@ return {
     "--completion-style=bundled",
     "--cross-file-rename",
     "--header-insertion=iwyu",
+    "--fallback-style=LLVM"
   },
   init_options = {
     clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread

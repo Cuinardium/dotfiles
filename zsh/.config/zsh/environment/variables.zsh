@@ -35,6 +35,8 @@ fi
 export CPATH="/Users/cuini/Repos/TPE-Arqui/Userland/shell/include/*:$PATH"
 
 
+export DOCKER_BUILDKIT=1
+
 
 # Default programs
 export MANPAGER="nvim +Man!"

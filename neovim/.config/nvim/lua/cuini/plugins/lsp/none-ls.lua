@@ -13,21 +13,13 @@ return {
             none_ls.setup {
                 debug = false,
                 sources = { -- Sources here
-                    -- C/C++
-                    formatting.clang_format.with({
-                        extra_args = {
-                            "-style={IndentWidth: 4, ColumnLimit: 120}"
-                        }
-                    }),
-
                     -- Java
                     formatting.google_java_format.with({
-                        -- extra_args = { "--aosp" }
+                        extra_args = { "--aosp" }
                     }),
 
                     -- Python
                     formatting.black,
-                    diagnostics.mypy,
 
                     -- Web
                     formatting.prettier,

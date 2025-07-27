@@ -39,12 +39,19 @@ lazy.setup({
             show_time = false,
         },
         event = "VimEnter",
+        enabled = false
     },
     {
         "nvzone/typr", -- Typing game
         dependencies = "nvzone/volt",
         opts = {},
         cmd = { "Typr", "TyprStats" },
+    },
+    {
+        "m4xshen/hardtime.nvim", -- Self punishment
+        lazy = false,
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {},
     },
     {
         "kawre/leetcode.nvim",

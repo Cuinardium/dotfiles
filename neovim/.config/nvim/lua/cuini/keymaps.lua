@@ -77,3 +77,4 @@ keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers(require
 
 -- Formatting --
 keymap("n", "<leader>F", ":lua vim.lsp.buf.format()<CR>", opts)
+vim.keymap.set('v', '<Leader>F', vim.lsp.buf.format, bufopts)
