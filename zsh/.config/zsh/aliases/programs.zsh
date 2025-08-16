@@ -27,6 +27,9 @@ alias visualizer='cava'
 alias clock='tuime -c Magenta'
 # eval $(thefuck --alias)
 
+alias grep='rg'
+alias find='fd'
+
 
 alias fetch='fastfetch --config kirby'
 # docker sistemas operativos
