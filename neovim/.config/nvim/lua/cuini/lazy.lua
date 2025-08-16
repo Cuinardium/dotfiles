@@ -71,9 +71,9 @@ lazy.setup({
     require("cuini.plugins.startup-screen"), -- startup screen
 
     -- LSP
+    { 'mfussenegger/nvim-jdtls' },               -- java setup
     require("cuini.plugins.lsp.none-ls"),        -- para linters y formatters
     require("cuini.plugins.lsp.lazydev"),        -- para el lsp de lua con nvim
-    { "nvim-java/nvim-java",      ft = "java" }, -- java
     require("cuini.plugins.lsp.setup"),          -- config del resto de language servers
 
     -- Autocomplete

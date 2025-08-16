@@ -122,13 +122,74 @@ local function lsp_highlights(event)
     end
 end
 
+-- ================ JDTLS ============================
+
+
+
+function jdtls_setup()
+    local M = {}
+
+    function M:setup()
+        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+        local workspace_dir = vim.fn.stdpath('data') .. '/workspace/' .. project_name
+        local config = {
+            -- The command that starts the language server
+            -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
+            cmd = {
+                "/usr/lib/jvm/java-24-openjdk/bin/java",
+                "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+                "-Dosgi.bundles.defaultStartLevel=4",
+                "-Declipse.product=org.eclipse.jdt.ls.core.product",
+                "-Dlog.protocol=true",
+                "-Dlog.level=ALL",
+                "-Xmx1g",
+                '-javaagent:' .. vim.fn.stdpath('data') .. '/mason/packages/jdtls/lombok.jar',
+                "--add-modules=ALL-SYSTEM",
+                "--add-opens",
+                "java.base/java.util=ALL-UNNAMED",
+                "--add-opens",
+                "java.base/java.lang=ALL-UNNAMED",
+                "-jar",
+                vim.fn.stdpath('data') .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar',
+                "-configuration",
+                vim.fn.stdpath('data') .. '/mason/packages/jdtls/config_linux',
+                "-data",
+                workspace_dir,
+            },
+            root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
+            settings = {
+                java = {},
+            },
+            init_options = {
+                bundles = {},
+            },
+        }
+
+        require("jdtls").start_or_attach(config)
+    end
+
+    return M
+end
+
+
+
+-- =============== SETUP ============================
 
 return {
     {
-        "neovim/nvim-lspconfig",                         -- para configurar el cliente lsp de nvim
+        "neovim/nvim-lspconfig",                   -- para configurar el cliente lsp de nvim
         dependencies = {
-            { "mason-org/mason.nvim", opts = {} },       -- instala programas que va a usar nvim
-            'mason-org/mason-lspconfig.nvim',            -- para que los configs de lsp-config usen los nombres de mason
+            { "mason-org/mason.nvim", opts = {} }, -- instala programas que va a usar nvim
+            {
+                'mason-org/mason-lspconfig.nvim',
+                opts = {
+                    automatic_enable = {
+                        exclude = {
+                            'jdtls'
+                        }
+                    }
+                }
+            },                                           -- para que los configs de lsp-config usen los nombres de mason
             'WhoIsSethDaniel/mason-tool-installer.nvim', --
             {
                 "j-hui/fidget.nvim",                     -- for useful lsp status updates
@@ -198,6 +259,7 @@ return {
                 'jdtls',
                 'terraform-ls',
                 'checkmake',
+                'gopls',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code
@@ -216,19 +278,16 @@ return {
             mason_tool_installer.setup { ensure_installed = tools }
 
 
-            -- Nvim java setup
-            -- Load_Plugin("java").setup({
-            --     jdtls = {
-            --         version = 'v1.46.1',
-            --     },
-            --     jdk = {
-            --         auto_install = false,
-            --     },
-            -- })
-            -- For now it works like this
             -- Env variable to let lsp-config configure lombok
-            vim.env.JDTLS_JVM_ARGS=
+            vim.env.JDTLS_JVM_ARGS =
                 '-javaagent:' .. vim.fn.stdpath('data') .. '/mason/packages/jdtls/lombok.jar'
+            vim.api.nvim_create_autocmd('Filetype', {
+                pattern = 'java',
+                callback = function()
+
+                    jdtls_setup().setup()
+                end
+            })
 
 
             local navic = Load_Plugin("nvim-navic")
