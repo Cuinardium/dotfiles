@@ -198,6 +198,8 @@ return {
                 'jdtls',
                 'terraform-ls',
                 'checkmake',
+                'gopls',
+                'hls',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code
