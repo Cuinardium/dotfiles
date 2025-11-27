@@ -1,5 +1,5 @@
 font-family = "Iosevka Nerd Font"
-theme = catppuccin-mocha
+theme = "Catppuccin Mocha"
 confirm-close-surface=false
 window-decoration=none
 resize-overlay=never
