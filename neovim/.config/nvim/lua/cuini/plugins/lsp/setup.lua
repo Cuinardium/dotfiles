@@ -136,7 +136,7 @@ function jdtls_setup()
             -- The command that starts the language server
             -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
             cmd = {
-                "/usr/lib/jvm/java-24-openjdk/bin/java",
+                "/usr/lib/jvm/java-25-openjdk/bin/java",
                 "-Declipse.application=org.eclipse.jdt.ls.core.id1",
                 "-Dosgi.bundles.defaultStartLevel=4",
                 "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -260,6 +260,8 @@ return {
                 'terraform-ls',
                 'checkmake',
                 'gopls',
+                'csharp_ls',
+                'hls',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code
