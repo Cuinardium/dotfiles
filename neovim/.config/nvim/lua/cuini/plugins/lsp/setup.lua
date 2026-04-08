@@ -132,6 +132,9 @@ function jdtls_setup()
     function M:setup()
         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
         local workspace_dir = vim.fn.stdpath('data') .. '/workspace/' .. project_name
+        local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+        local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+
         local config = {
             -- The command that starts the language server
             -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -150,7 +153,7 @@ function jdtls_setup()
                 "--add-opens",
                 "java.base/java.lang=ALL-UNNAMED",
                 "-jar",
-                vim.fn.stdpath('data') .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar',
+                launcher_jar,
                 "-configuration",
                 vim.fn.stdpath('data') .. '/mason/packages/jdtls/config_linux',
                 "-data",
@@ -262,6 +265,7 @@ return {
                 'gopls',
                 'csharp_ls',
                 'hls',
+                'tinymist',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code

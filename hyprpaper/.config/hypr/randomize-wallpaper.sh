@@ -33,15 +33,13 @@ is_vertical() {
 
 # --- choose files ----------------------------------------------------------
 
-CURRENT="$(hyprctl hyprpaper listloaded 2>/dev/null | tail -n1 || true)"
-
 mapfile -t FILES < <(find -L "$WALLPAPER_DIR" -type f -readable)
 ((${#FILES[@]})) || { echo "No wallpapers found"; exit 1; }
 
 # Filter out CURRENT if present
 CAND=()
 for f in "${FILES[@]}"; do
-  [[ "$f" != "$CURRENT" ]] && CAND+=("$f")
+  CAND+=("$f")
 done
 ((${#CAND[@]})) || CAND=("${FILES[@]}")
 
@@ -74,15 +72,6 @@ fi
 ((${#MONS[@]})) || { echo "No monitors found"; exit 1; }
 
 # --- apply wallpapers ------------------------------------------------------
-
-# Proper sequence: unload, preload once(s), then set per monitor.
-hyprctl hyprpaper unload all
-
-# Preload needed images
-hyprctl hyprpaper preload "$REAL_SRC"
-if [[ -n "${HORIZONTAL_SRC:-}" && "$HORIZONTAL_SRC" != "$REAL_SRC" ]]; then
-  hyprctl hyprpaper preload "$HORIZONTAL_SRC"
-fi
 
 
 # First monitor: use horizontal if available; others: use REAL_SRC

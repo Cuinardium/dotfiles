@@ -38,12 +38,6 @@ mv -f "$LAND_ADAPT_JPG" "$LAND_ADAPT"
 mv -f "$PORT_ADAPT_JPG" "$PORT_ADAPT"
 
 # --- aplicar con hyprpaper ---------------------------------------------------
-hyprctl hyprpaper unload all || true
-
-# Preload de ambos
-hyprctl hyprpaper preload "$LAND_ADAPT"
-hyprctl hyprpaper preload "$PORT_ADAPT"
-
 # Monitores
 readarray -t MONS < <(hyprctl -j monitors | jq -r '.[].name')
 ((${#MONS[@]})) || { echo "ERROR: no monitors found"; exit 4; }

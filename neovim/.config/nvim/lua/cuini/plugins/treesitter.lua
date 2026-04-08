@@ -21,7 +21,9 @@ return { {
             "html",
             "hcl",
             "haskell",
-            "c_sharp"
+            "c_sharp",
+            "go",
+            "typst"
         },
         sync_install = false,
         highlight = {

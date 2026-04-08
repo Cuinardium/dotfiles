@@ -46,6 +46,17 @@
   "bar.layouts": {
     "0": {
       "left": [
+        "workspaces"
+      ],
+      "middle": [
+        "windowtitle"
+      ],
+      "right": [
+        "clock"
+      ]
+    },
+    "1": {
+      "left": [
         "dashboard",
         "workspaces",
         "media"
@@ -65,17 +76,6 @@
         "clock",
         "notifications"
       ]
-    },
-    "1": {
-      "left": [
-        "workspaces"
-      ],
-      "middle": [
-        "windowtitle"
-      ],
-      "right": [
-        "clock"
-      ]
     }
   },
   "bar.customModules.microphone.label": true,
@@ -86,12 +86,12 @@
   "bar.customModules.cpuTemp.unit": "metric",
   "bar.customModules.cpuTemp.showUnit": true,
   "bar.customModules.cpuTemp.round": true,
-  "bar.customModules.storage.labelType": "used",
+  "bar.customModules.storage.labelType": "used/total",
   "bar.customModules.storage.round": true,
   "bar.customModules.netstat.networkInterface": "enp5s0",
   "bar.customModules.netstat.icon": "󰖟",
   "bar.customModules.netstat.rateUnit": "auto",
-  "bar.customModules.netstat.labelType": "full",
+  "bar.customModules.netstat.labelType": "out",
   "bar.customModules.netstat.round": true,
   "menus.dashboard.powermenu.confirmation": true,
   "menus.dashboard.controls.enabled": false,
@@ -490,5 +490,8 @@
   "bar.customModules.weather.label": true,
   "bar.customModules.storage.paths": [
     "/"
-  ]
+  ],
+  "theme.bar.buttons.modules.cava.enableBorder": false,
+  "bar.customModules.cava.showIcon": false,
+  "bar.customModules.cava.showActiveOnly": true
 }

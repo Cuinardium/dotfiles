@@ -185,9 +185,6 @@ if (( port_count > 0 )); then
 fi
 
 # --- apply with hyprpaper ----------------------------------------------------
-hyprctl hyprpaper unload all || true
-[[ -f "$LAND_FILE" ]] && hyprctl hyprpaper preload "$LAND_FILE"
-[[ -f "$PORT_FILE" ]] && hyprctl hyprpaper preload "$PORT_FILE"
 
 for i in "${!MON_NAMES[@]}"; do
   m="${MON_NAMES[$i]}"

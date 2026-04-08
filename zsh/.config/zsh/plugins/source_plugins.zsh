@@ -22,6 +22,15 @@ zinit light jeffreytse/zsh-vi-mode
 # Load completions
 autoload -Uz compinit && compinit
 
+zinit ice wait lucid \
+    as"completion" \
+    id-as"helm-completion" \
+    has"helm" \
+    atclone"helm completion zsh > _helm" \
+    atpull"%atclone" \
+    run-atpull
+zinit light z-shell/null
+
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
