@@ -136,13 +136,13 @@ function jdtls_setup()
             -- The command that starts the language server
             -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
             cmd = {
-                "/usr/lib/jvm/java-24-openjdk/bin/java",
+                "/usr/lib/jvm/java-25-openjdk/bin/java",
                 "-Declipse.application=org.eclipse.jdt.ls.core.id1",
                 "-Dosgi.bundles.defaultStartLevel=4",
                 "-Declipse.product=org.eclipse.jdt.ls.core.product",
                 "-Dlog.protocol=true",
                 "-Dlog.level=ALL",
-                "-Xmx1g",
+                "-Xmx2g",
                 '-javaagent:' .. vim.fn.stdpath('data') .. '/mason/packages/jdtls/lombok.jar',
                 "--add-modules=ALL-SYSTEM",
                 "--add-opens",
@@ -244,22 +244,22 @@ return {
             local tools = {
                 -- LSP
                 'lua_ls',
-                'clangd',
+                -- 'clangd',
                 'html',
                 'zls',
                 'cmake',
                 'pyright',
                 'bashls',
                 'taplo',
-                'lemminx',
+                -- 'lemminx',
                 'cssls',
                 'ts_ls',
                 'rust_analyzer',
                 'jdtls',
                 'terraform-ls',
-                'checkmake',
+                -- 'checkmake',
                 'gopls',
-                'hls',
+                -- 'hls',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code
@@ -272,7 +272,17 @@ return {
 
                 -- web
                 'prettier',
+
+                -- docker
+                'docker-compose-language-service',
+                'dockerfile-language-server',
+                'docker-language-server',
+                'ansible-language-server'
+
+
             }
+
+            vim.lsp.enable('hls')
 
             local mason_tool_installer = Load_Plugin("mason-tool-installer")
             mason_tool_installer.setup { ensure_installed = tools }

@@ -19,7 +19,9 @@ return { {
             "markdown_inline",
             "latex",
             "html",
-            "hcl"
+            "hcl",
+            "haskell",
+            "solidity"
         },
         sync_install = false,
         highlight = {

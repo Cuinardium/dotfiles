@@ -21,13 +21,13 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Iosevka Aile Font 11";
-    background:                  #1e1e2e;
-    background-alt:              #1e1e2e;
-    foreground:                  #cdd6f4;
-    selected:                    #cba6f7;
-    active:                      #a6e3a1;
-    urgent:                      #a6e3a1;
+    font:                        "Iosevka Nerd Font 13";
+    background:                  #2B3339;
+    background-alt:              #2B3339;
+    foreground:                  #C2B69F;
+    selected:                    #93A876;
+    active:                      #93A876;
+    urgent:                      #93A876;
 }
 
 /*****----- Main Window -----*****/
@@ -71,7 +71,7 @@ inputbar {
     spacing:                     10px;
     padding:                     80px 60px;
     background-color:            transparent;
-    background-image:            url("/home/cuini/Pictures/wallpapers/aesthetic/anime_cafe_tokyonight.png", width);
+    background-image:            url("/home/cuini/.config/hypr/wallpapers-everforest/pastel-window.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];

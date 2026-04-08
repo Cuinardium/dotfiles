@@ -110,7 +110,7 @@ return {
                     'score',
                     'sort_text',
                 },
-                implementation = 'prefer_rust_with_warning'
+                implementation = 'rust'
             },
 
             -- Shows a signature help window while you type arguments for a function
