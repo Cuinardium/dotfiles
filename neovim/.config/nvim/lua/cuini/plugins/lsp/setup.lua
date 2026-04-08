@@ -132,6 +132,10 @@ function jdtls_setup()
     function M:setup()
         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
         local workspace_dir = vim.fn.stdpath('data') .. '/workspace/' .. project_name
+
+        local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+        local launcher_jar = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+
         local config = {
             -- The command that starts the language server
             -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -142,7 +146,7 @@ function jdtls_setup()
                 "-Declipse.product=org.eclipse.jdt.ls.core.product",
                 "-Dlog.protocol=true",
                 "-Dlog.level=ALL",
-                "-Xmx2g",
+                "-Xmx1g",
                 '-javaagent:' .. vim.fn.stdpath('data') .. '/mason/packages/jdtls/lombok.jar',
                 "--add-modules=ALL-SYSTEM",
                 "--add-opens",
@@ -150,8 +154,7 @@ function jdtls_setup()
                 "--add-opens",
                 "java.base/java.lang=ALL-UNNAMED",
                 "-jar",
-                vim.fn.stdpath('data') ..
-                '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar',
+                launcher_jar,
                 "-configuration",
                 vim.fn.stdpath('data') .. '/mason/packages/jdtls/config_linux',
                 "-data",
@@ -172,11 +175,12 @@ function jdtls_setup()
     return M
 end
 
+
 -- =============== SETUP ============================
 
 return {
     {
-        "neovim/nvim-lspconfig",               -- para configurar el cliente lsp de nvim
+        "neovim/nvim-lspconfig",                   -- para configurar el cliente lsp de nvim
         dependencies = {
             { "mason-org/mason.nvim", opts = {} }, -- instala programas que va a usar nvim
             {
@@ -188,7 +192,7 @@ return {
                         }
                     }
                 }
-            },                                       -- para que los configs de lsp-config usen los nombres de mason
+            },                                           -- para que los configs de lsp-config usen los nombres de mason
             'WhoIsSethDaniel/mason-tool-installer.nvim', --
             {
                 "j-hui/fidget.nvim",                 -- for useful lsp status updates
@@ -260,6 +264,11 @@ return {
                 -- 'checkmake',
                 'gopls',
                 -- 'hls',
+                'checkmake',
+                'gopls',
+                'csharp_ls',
+                'hls',
+                'tinymist',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code

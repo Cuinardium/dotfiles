@@ -81,30 +81,13 @@ lazy.setup({
 
 
 
-    -- LLM integration
-    -- {
-    --     "zbirenbaum/copilot.lua",
-    --     cmd = "Copilot",
-    --     event = "InsertEnter",
-    --     opts = {
-    --         suggestion = {
-    --             enabled = true,
-    --             hide_during_completion = true,
-    --             auto_trigger = false,
-    --             keymap = {
-    --                 accept = "<C-a>",
-    --                 next   = "<C-c>"
-    --             }
-    --         },
-    --         panel = {
-    --             enabled = true,
-    --             layout = {
-    --                 position = "left",
-    --                 ratio = 0.4
-    --             },
-    --         }
-    --     },
-    -- },                         -- copilot
+    -- -- LLM integration
+    {
+      "supermaven-inc/supermaven-nvim",
+      config = function()
+        require("supermaven-nvim").setup({})
+      end,
+    },
     {
         "SmiteshP/nvim-navic", -- winbar
         opts = { highlight = true }

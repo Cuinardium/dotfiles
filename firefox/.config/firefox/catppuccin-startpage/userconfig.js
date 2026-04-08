@@ -15,7 +15,7 @@ const default_config = {
   openLastVisitedTab: true,
   tabs: [
     {
-      name: "uni",
+      name: "work",
       background_url: "src/img/banners/cbg-05.gif",
       categories: [
         {
@@ -32,6 +32,12 @@ const default_config = {
               url: "https://sga.itba.edu.ar",
               icon: "device-ipad-horizontal-cog",
               icon_color: palette.blue
+            },
+            {
+              name: "azure-ai",
+              url: "https://learn.microsoft.com/es-mx/training/courses/ai-102t00",
+              icon_color: palette.red,
+              icon: "brand-azure"
             }
           ],
         },

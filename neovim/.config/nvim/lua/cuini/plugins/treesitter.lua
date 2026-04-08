@@ -22,6 +22,9 @@ return { {
             "hcl",
             "haskell",
             "solidity"
+            "c_sharp",
+            "go",
+            "typst"
         },
         sync_install = false,
         highlight = {
