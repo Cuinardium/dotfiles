@@ -1,5 +1,5 @@
 -- Config
-return { {
+return { 
     "nvim-treesitter/nvim-treesitter",
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
@@ -21,7 +21,7 @@ return { {
             "html",
             "hcl",
             "haskell",
-            "solidity"
+            "solidity",
             "c_sharp",
             "go",
             "typst"
@@ -46,4 +46,4 @@ return { {
             },
         }
     }
-} }
+}
