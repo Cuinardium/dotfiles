@@ -82,3 +82,13 @@ output_path = '~/.config/zathura/generated'
 [templates.obsidian]
 input_path = './templates/obsidian.css'
 output_path = '~/Documents/Zettlekasten/.obsidian/snippets/matugen.css'
+
+[templates.pywalfox]
+input_path = './templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+[templates.startpage]
+input_path = './templates/startpage.css'
+output_path = '~/Repos/startpage/matugen/matugen-colors.css'
+
