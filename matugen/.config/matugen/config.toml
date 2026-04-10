@@ -74,3 +74,7 @@ post_hook = 'tmux source-file ~/.config/tmux/generated.conf'
 [templates.yazi]
 input_path = './templates/yazi-theme.toml'
 output_path = '~/.config/yazi/theme.toml'
+
+[templates.zathura]
+input_path = './templates/zathura-colors'
+output_path = '~/.config/zathura/generated'
