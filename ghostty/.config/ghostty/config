@@ -1,5 +1,6 @@
-font-family = "Iosevka Nerd Font"
-theme = "Catppuccin Mocha"
+font-family = "Iosevka Nerd Font Mono"
+font-size = 13
+theme = "Matugen"
 confirm-close-surface=false
 window-decoration=none
 resize-overlay=never

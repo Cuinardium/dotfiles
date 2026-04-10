@@ -483,7 +483,7 @@
   "menus.dashboard.shortcuts.left.shortcut4.command": "wofi --show dmenu",
   "wallpaper.enable": false,
   "menus.dashboard.shortcuts.right.shortcut3.command": "hyprshot -m region --clipboard-only",
-  "menus.dashboard.powermenu.avatar.image": "/home/cuini/Pictures/wallpapers/anime/5823589-2920x1640-desktop-hd-boy-programmer-wallpaper-image.jpg",
+  "menus.dashboard.powermenu.avatar.image": "/home/cuini/Pictures/avatar.png",
   "bar.customModules.ram.leftClick": "ghostty -e btop",
   "bar.customModules.cpu.leftClick": "ghostty -e btop",
   "menus.clock.weather.enabled": true,

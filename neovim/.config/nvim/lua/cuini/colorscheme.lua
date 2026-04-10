@@ -1,19 +1,43 @@
+local function source_matugen()
+  -- Update this with the location of your output file
+  local matugen_path = os.getenv("HOME") .. "/.config/nvim/lua/cuini/matugen.lua"  -- dofile doesn't expand $HOME or ~
 
--- Configure colorscheme plugin
-Load_Plugin('catppuccin').setup({
-    transparent_background = true,
+  local file, err = io.open(matugen_path, "r")
+  -- If the matugen file does not exist (yet or at all), we must initialize a color scheme ourselves
+  if err ~= nil then
+    -- Some placeholder theme, this will be overwritten once matugen kicks in
+    vim.cmd('colorscheme catppuccin-mocha')
+
+    -- Optionally print something to the user
+    vim.print("A matugen style file was not found, but that's okay! The colorscheme will dynamically change if matugen runs!")
+  else
+    dofile(matugen_path)
+    io.close(file)
+  end
+end
+
+-- Main entrypoint on matugen reloads
+local function matugen_reload()
+  -- Load the matugen style file to get all the new colors
+  source_matugen()
+
+  -- Because reloading base16 overwrites lualine configuration, just source lualine here
+  dofile(os.getenv("HOME") .. '/.config/nvim/lua/cuini/plugins/lualine.lua') -- path of your lualine setup
+
+  -- Any other options you wish to set upon matugen reloads can also go here!
+  vim.api.nvim_set_hl(0, "Comment", { italic = true })
+end
+
+-- Register an autocmd to listen for matugen updates
+vim.api.nvim_create_autocmd("Signal", {
+  pattern = "SIGUSR1",
+  callback = matugen_reload,
 })
 
--- Set colorscheme
 
-COLORSCHEME = "catppuccin-mocha"
 
+source_matugen()
 -- Llamado seguro, equivalente a vim.cmd "colorschme ..."
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. COLORSCHEME)
-if not status_ok then
-  vim.notify("Colorscheme " .. colorscheme .. " not found!")
-  return
-end
 status_ok = pcall(vim.cmd, "hi Normal guibg=NONE ctermbg=NONE")
 if not status_ok then
   vim.notify("Error setting background to NONE")

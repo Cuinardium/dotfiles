@@ -120,6 +120,7 @@ lazy.setup({
     { 'catppuccin/nvim',          priority = 1000 },
     { "neanias/everforest-nvim" },
     { 'folke/lsp-colors.nvim' }, -- colors for lsp diagnostics
+    { 'RRethy/base16-nvim' },
 
     -- Highlight todo, notes, etc in comments
     { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
