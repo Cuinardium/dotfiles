@@ -61,3 +61,12 @@ post_hook = 'spicetify watch -s 2>&1 | sed "/Reloaded Spotify/q"'
 [templates.starship]
 input_path = './templates/starship-colors.toml'
 output_path = '~/.config/starship.toml'
+
+[templates.television]
+input_path = './templates/television.toml'
+output_path = '~/.config/television/themes/matugen.toml'
+
+[templates.tmux]
+input_path = './templates/tmux-colors.conf'
+output_path = '~/.config/tmux/generated.conf'
+post_hook = 'tmux source-file ~/.config/tmux/generated.conf' 
