@@ -78,3 +78,7 @@ output_path = '~/.config/yazi/theme.toml'
 [templates.zathura]
 input_path = './templates/zathura-colors'
 output_path = '~/.config/zathura/generated'
+
+[templates.obsidian]
+input_path = './templates/obsidian.css'
+output_path = '~/Documents/Zettlekasten/.obsidian/snippets/matugen.css'
