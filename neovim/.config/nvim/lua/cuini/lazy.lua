@@ -17,9 +17,7 @@ local lazy = Load_Plugin("lazy")
 lazy.setup({
 
     -- General plugins
-    { "nvim-lua/popup.nvim" },                                           -- an implementation of the Popup API from vim in Neovim
     { "nvim-lua/plenary.nvim" },                                         -- useful lua functions used by lots of plugins
-    { "vigoux/notifier.nvim",        opts = {} },                        -- notifications
     { "windwp/nvim-autopairs",       event = 'InsertEnter', opts = {} }, -- autopairs
     { "kyazdani42/nvim-web-devicons" },                                  -- icons for other plugind
     { "famiu/bufdelete.nvim" },                                          -- delete buffer
@@ -72,9 +70,7 @@ lazy.setup({
 
     -- LSP
     { 'mfussenegger/nvim-jdtls' },               -- java setup
-    require("cuini.plugins.lsp.none-ls"),        -- para linters y formatters
-    require("cuini.plugins.lsp.lazydev"),        -- para el lsp de lua con nvim
-    require("cuini.plugins.lsp.setup"),          -- config del resto de language servers
+    require("cuini.plugins.lsp"),          -- config del resto de language servers
 
     -- Autocomplete
     require('cuini.plugins.autocomplete'), -- Engine de autocompletado
@@ -119,7 +115,6 @@ lazy.setup({
     { "sainnhe/gruvbox-material" },
     { 'catppuccin/nvim',          priority = 1000 },
     { "neanias/everforest-nvim" },
-    { 'folke/lsp-colors.nvim' }, -- colors for lsp diagnostics
     { 'RRethy/base16-nvim' },
 
     -- Highlight todo, notes, etc in comments
