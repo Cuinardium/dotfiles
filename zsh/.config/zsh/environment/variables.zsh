@@ -20,7 +20,6 @@ esac
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
-export CPATH="/Users/cuini/Repos/TPE-Arqui/Userland/shell/include/*:$PATH"
 
 
 export DOCKER_BUILDKIT=1
