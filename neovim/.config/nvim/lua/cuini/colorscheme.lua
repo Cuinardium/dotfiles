@@ -38,11 +38,11 @@ vim.api.nvim_create_autocmd("Signal", {
 
 source_matugen()
 -- Llamado seguro, equivalente a vim.cmd "colorschme ..."
-status_ok = pcall(vim.cmd, "hi Normal guibg=NONE ctermbg=NONE")
-if not status_ok then
-  vim.notify("Error setting background to NONE")
-  return
-end
+-- status_ok = pcall(vim.cmd, "hi Normal guibg=NONE ctermbg=NONE")
+-- if not status_ok then
+--   vim.notify("Error setting background to NONE")
+--   return
+-- end
 
 local scheme_highlights = vim.api.nvim_get_hl(0, {})
 

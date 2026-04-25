@@ -17,6 +17,11 @@ function Load_Plugin(plugin)
     return safe_load(plugin, "plugin")
 end
 
+-- Supress the vim.tbl_islist deprecation warning
+if vim.fn.has('nvim-0.12') == 1 then
+    vim.tbl_islist = vim.islist
+end
+
 -- Plugins -> ./lua/cuini/lazy.lua
 Load_File('cuini.lazy')
 

@@ -266,6 +266,7 @@ return {
                 'csharp_ls',
                 'hls',
                 'tinymist',
+                'qmlls',
 
                 -- Formatters y linters
                 'stylua', -- Used to format Lua code
@@ -287,6 +288,8 @@ return {
             -- Env variable to let lsp-config configure lombok
             vim.env.JDTLS_JVM_ARGS =
                 '-javaagent:' .. vim.fn.stdpath('data') .. '/mason/packages/jdtls/lombok.jar'
+            -- Env variable for qmlls
+            vim.env.QML_IMPORT_PATH = "/usr/lib/quickshell:/usr/lib/qt6/qml"
             vim.api.nvim_create_autocmd('Filetype', {
                 pattern = 'java',
                 callback = function()
