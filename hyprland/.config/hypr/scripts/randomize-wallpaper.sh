@@ -84,4 +84,4 @@ for i in "${!MONS[@]}"; do
   fi
 done
 
-matugen image "$REAL_SRC" --source-color-index 0
+set-theme "$REAL_SRC" 
