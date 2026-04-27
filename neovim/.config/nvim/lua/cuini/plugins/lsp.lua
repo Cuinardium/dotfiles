@@ -200,7 +200,6 @@ return {
 		opts = {
 			-- Pass the dynamic table we created at the top
 			formatters_by_ft = formatters_by_filetype,
-			format_on_save = { timeout_ms = 500, lsp_fallback = true },
 		},
 	},
 

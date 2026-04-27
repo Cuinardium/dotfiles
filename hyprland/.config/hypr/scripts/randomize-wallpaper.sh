@@ -84,4 +84,6 @@ for i in "${!MONS[@]}"; do
   fi
 done
 
+echo "$REAL_SRC" > "$HOME/.cache/current-wallpaper"
+
 set-theme "$REAL_SRC" 

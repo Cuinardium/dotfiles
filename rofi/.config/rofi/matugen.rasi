@@ -7,6 +7,8 @@
  * Rofi Version: 1.7.3
  **/
 
+@import "colors.rasi"
+
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,filebrowser,window";
@@ -21,21 +23,22 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    font:                        "Iosevka Aile Font 11";
-    background:                  #1e1e2e;
-    background-alt:              #1e1e2e;
-    foreground:                  #cdd6f4;
-    selected:                    #cba6f7;
-    active:                      #a6e3a1;
-    urgent:                      #a6e3a1;
+    font:                        "Geist 11";
+    background:                  @surface;
+    background-alt:              @surface-container;
+    foreground:                  @on-surface;
+    selected:                    @primary;
+    active:                      @primary-container;
+    urgent:                      @error;
 }
+
 
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    south;
+    anchor:                      south;
     fullscreen:                  false;
     width:                       600px;
     x-offset:                    0px;
@@ -43,7 +46,7 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border-radius:               20px;
+    border-radius:               20px 20px 0px 0px;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -69,9 +72,8 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     80px 60px;
-    background-color:            transparent;
-    background-image:            url("/home/cuini/Pictures/wallpapers/aesthetic/anime_cafe_tokyonight.png", width);
+    padding:                     20px 60px;
+    background-color:            @background;
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
@@ -82,7 +84,7 @@ textbox-prompt-colon {
     str:                         "";
     padding:                     12px 15px;
     border-radius:               100%;
-    background-color:            @background-alt;
+    background-color:            @surface-container-high;
     text-color:                  inherit;
 }
 entry {
@@ -91,7 +93,7 @@ entry {
     width:                       250px;
     padding:                     12px 16px;
     border-radius:               100%;
-    background-color:            @background-alt;
+    background-color:            @surface-container-high;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
@@ -113,12 +115,12 @@ button {
     width:                       45px;
     padding:                     12px;
     border-radius:               100%;
-    background-color:            @background-alt;
+    background-color:            @surface-container-high;
     text-color:                  inherit;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @background-alt;
+    background-color:            @surface-container-high;
     text-color:                  @selected;
 }
 
@@ -164,7 +166,7 @@ element normal.active {
     text-color:                  @active;
 }
 element selected.normal {
-    background-color:            @background;
+    background-color:            @primary-container;
     text-color:                  @selected;
 }
 element selected.urgent {
