@@ -2,7 +2,7 @@
 
 This is an auxiliary README documenting the `.config/matugen/` directory within these dotfiles with all the templates for theming other apps.
 
-> **Attribution Notice:** > Templates for ghostty and neovim realy heavily on [AvengeMedia/DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell). Specifically, the `dank16` Go binary (for calculating Delta Phi Star contrast) and the Neovim live-reload template (`template.lua`) are almost direct copies of the source code from that repository. They have been extracted and modified here to work in a standalone Matugen environment without requiring the full DMS daemon.
+> **Attribution Notice:** > Templates for kitty and neovim realy heavily on [AvengeMedia/DankMaterialShell](https://github.com/AvengeMedia/DankMaterialShell). Specifically, the `dank16` Go binary (for calculating Delta Phi Star contrast) and the Neovim live-reload template (`template.lua`) are almost direct copies of the source code from that repository. They have been extracted and modified here to work in a standalone Matugen environment without requiring the full DMS daemon.
 
 ## Directory Structure
 

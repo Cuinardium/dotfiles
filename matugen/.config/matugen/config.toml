@@ -14,11 +14,6 @@ output_path = '~/.config/cava/config'
 input_path = './templates/clipse_theme.json'
 output_path = '~/.config/clipse/custom_theme.json'
 
-[templates.ghostty]
-input_path = './templates/ghostty'
-output_path = '~/.config/ghostty/themes/Matugen'
-post_hook = 'pkill -SIGUSR2 ghostty'
-
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
@@ -102,3 +97,8 @@ output_path = '~/Repos/hyprland-shell/style/colors.json'
 [templates.rofi]
 input_path = './templates/colors.rasi'
 output_path = '~/.config/rofi/colors.rasi'
+
+[templates.kitty]
+input_path = './templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Matugen.conf'
+post_hook = 'kitty +kitten themes --reload-in=all Matugen'
