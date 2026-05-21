@@ -17,6 +17,9 @@ output_path = '~/.config/clipse/custom_theme.json'
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
+post_hook = 'systemctl --user restart xdg-desktop-portal-gtk.service'
+
+
 
 [templates.gtk4]
 input_path = './templates/gtk-colors.css'
