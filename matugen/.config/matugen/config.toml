@@ -34,8 +34,8 @@ input_path = './templates/qtct-colors.conf'
 output_path = '~/.config/qt6ct/colors/matugen.conf'
 
 [templates.hyprland]
-input_path = './templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/modules/colors/colors.conf'
+input_path = './templates/hyprland-colors.lua'
+output_path = '~/.config/hypr/modules/colors/colors.lua'
 
 [templates.discord]
 input_path = './templates/midnight-discord.css'
@@ -96,10 +96,6 @@ output_path = '~/.config/lazygit/config.yml'
 [templates.quickshell]
 input_path = './templates/colors.json'
 output_path = '~/Repos/hyprland-shell/style/colors.json'
-
-[templates.rofi]
-input_path = './templates/colors.rasi'
-output_path = '~/.config/rofi/colors.rasi'
 
 [templates.kitty]
 input_path = './templates/kitty-colors.conf'

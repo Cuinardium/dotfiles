@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "./meta"
+    ]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

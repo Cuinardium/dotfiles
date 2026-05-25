@@ -163,8 +163,8 @@ for i in "${!MON_NAMES[@]}"; do
 done
 
 # --- fetch once per ratio (no resolution in filenames) ----------------------
-LAND_FILE="/tmp/wallpaper_landscape"
-PORT_FILE="/tmp/wallpaper_portrait"
+LAND_FILE="/tmp/wallpaper_landscape_$(date +%s)"
+PORT_FILE="/tmp/wallpaper_portrait_$(date +%s)"
 
 if (( land_count > 0 )); then
   land_atleast="${land_w}x${land_h}"
@@ -175,14 +175,14 @@ if (( land_count > 0 )); then
   fi
 fi
 
-if (( port_count > 0 )); then
-  port_atleast="${port_w}x${port_h}"
-  echo "Fetching PORTRAIT (atleast=$port_atleast) -> $PORT_FILE"
-  if ! fetch_wallpaper_for "$URL" "portrait" "$port_atleast" "$PORT_FILE"; then
-    echo "Fallback: PORTRAIT without atleast"
-    fetch_wallpaper_for "$URL" "portrait" "" "$PORT_FILE"
-  fi
-fi
+# if (( port_count > 0 )); then
+#   port_atleast="${port_w}x${port_h}"
+#   echo "Fetching PORTRAIT (atleast=$port_atleast) -> $PORT_FILE"
+#   if ! fetch_wallpaper_for "$URL" "portrait" "$port_atleast" "$PORT_FILE"; then
+#     echo "Fallback: PORTRAIT without atleast"
+#     fetch_wallpaper_for "$URL" "portrait" "" "$PORT_FILE"
+#   fi
+# fi
 
 # --- apply with hyprpaper ----------------------------------------------------
 
@@ -190,13 +190,15 @@ for i in "${!MON_NAMES[@]}"; do
   m="${MON_NAMES[$i]}"
   case "${MON_RATIO[$i]}" in
     landscape) f="$LAND_FILE" ;;
-    portrait)  f="$PORT_FILE" ;;
+    portrait)  f="$LAND_FILE" ;;
     *) echo "Unknown ratio for monitor $m"; exit 6 ;;
   esac
-  hyprctl hyprpaper wallpaper "$m,$f"
+  hyprctl hyprpaper wallpaper "$m,$LAND_FILE"
 done
 
 echo "Done:"
 for i in "${!MON_NAMES[@]}"; do
-  echo "  ${MON_NAMES[$i]} (${MON_RATIO[$i]}) -> $( [[ ${MON_RATIO[$i]} == landscape ]] && echo "$LAND_FILE" || echo "$PORT_FILE" )"
+  echo "  ${MON_NAMES[$i]} (${MON_RATIO[$i]}) -> $( [[ ${MON_RATIO[$i]} == landscape ]] && echo "$LAND_FILE" || echo "$LAND_FILE" )"
 done
+
+set-theme "$LAND_FILE"
