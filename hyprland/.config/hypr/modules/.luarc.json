@@ -1,7 +1,7 @@
 {
   "workspace": {
     "library": [
-      "./meta"
+      "/usr/share/hypr/stubs"
     ]
   },
   "diagnostics": {
