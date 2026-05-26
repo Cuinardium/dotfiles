@@ -67,3 +67,36 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# Agents, usamos aliases para correrlo en otra ventana
+# La class la matchea una window rule de hyprland
+
+# Claude Code Alias
+# Tenemos que pasarle un titulo unico asi el hook de claude code
+# Sabe cual es la ventana donde esta corriendo y poder setearle el urgent tag
+claude() {
+    # Generate a unique 8-character ID for this specific instance
+    local INSTANCE_ID=$(cat /proc/sys/kernel/random/uuid | cut -c1-8)
+    
+    # Pass the ID as an environment variable to the window
+    # Redirect stdout and stderr to /dev/null before sending to background
+    kitty --class "agent" \
+          --title "Claude-$INSTANCE_ID" \
+          -o "env CLAUDE_INSTANCE_ID=$INSTANCE_ID" \
+          --directory "$PWD" \
+          -e claude "$@" > /dev/null 2>&1 & disown
+
+    sleep 0.3
+    hyprctl dispatch "hl.dsp.focus({window = 'title:Claude-$INSTANCE_ID'})"
+}
+
+# OpenCode Alias
+opencode() {
+    kitty --class "agent" --directory "$PWD" -e opencode "$@" > /dev/null 2>&1 &
+    
+    local PID=$!
+    disown
+
+    sleep 0.3
+    hyprctl dispatch "hl.dsp.focus({window = 'pid:$PID'})"
+}

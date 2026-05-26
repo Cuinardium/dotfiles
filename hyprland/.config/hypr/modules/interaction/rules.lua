@@ -73,9 +73,9 @@ hl.window_rule({
 -- SDDM / Empty Workspace Rule
 hl.window_rule({
     name = "emptym",
-    match = { 
+    match = {
         workspace = "emptym",
-        class = "^(sddm-greeter)$" 
+        class = "^(sddm-greeter)$"
     },
     fullscreen = true,
     stay_focused = true,
@@ -90,11 +90,20 @@ hl.window_rule({
 -- Agents to special workspaces
 hl.window_rule({
     name = "agents",
-    match = { class = "^(agent)$"},
+    match = { class = "^(agent)$" },
     workspace = "special:agents silent",
     float = true,
-    size = {"(monitor_w*0.3)", "(monitor_h*0.75)"},
+    size = { "(monitor_w*0.3)", "(monitor_h*0.75)" },
     center = true
+})
+
+-- Claude code no funciona bien para setear el urgent nativo de wayland
+-- Entonces lo manejamos con agregarle este tag a la ventana de claude
+-- Cada vez que necesita un input, al focusearla se lo sacamos
+hl.window_rule({
+    name = "clear urgent",
+    match = { class = "^(agent)$", tag = "urgent", focus = true },
+    tag = "-urgent"
 })
 
 --------------------------------
