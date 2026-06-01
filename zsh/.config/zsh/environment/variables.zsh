@@ -54,3 +54,6 @@ export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$XDG_DATA_DIRS"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export LEDGER_FILE="$HOME/Documents/ledger/2026.journal"
+export PATH="$PATH:/home/cuini/.cargo/bin"
