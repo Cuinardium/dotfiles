@@ -6,4 +6,4 @@ set selection-clipboard clipboard
 set recolor true
 
 # color scheme
-include catppuccin
+include generated

@@ -1,0 +1,5 @@
+
+[mgr]
+prepend_keymap = [
+    { on = "<C-d>", run = "shell -- dragon -a -x -T $@" },
+]

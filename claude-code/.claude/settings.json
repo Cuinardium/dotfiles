@@ -1,0 +1,49 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/on-stop.sh\""
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$HOME/.claude/hooks/on-notification.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "lua-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "qt-skills-and-tools": {
+      "source": {
+        "source": "github",
+        "repo": "TheQtCompanyRnD/agent-skills"
+      }
+    },
+    "springboot-skills-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "a-pavithraa/springboot-skills-marketplace"
+      }
+    }
+  },
+  "theme": "auto"
+}
