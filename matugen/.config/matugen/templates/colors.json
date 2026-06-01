@@ -1,0 +1,9 @@
+ {
+  <* for name, value in colors *>
+    <* if not {{ loop.last }} *>
+      "{{name}}": "{{value.default.hex}}",
+    <* else *>
+        "{{name}}": "{{value.default.hex}}"
+    <* endif *>
+  <* endfor *>
+  }

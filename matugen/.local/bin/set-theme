@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <path_to_image>"
+    echo "Example: $0 ~/Pictures/Wallpapers/my_wallpaper.jpg"
+    exit 1
+fi
+
+IMAGE_PATH="$1"
+CACHE_DIR="$HOME/.cache/matugen"
+JSON_OUT="$CACHE_DIR/dank.json"
+
+# Ensure cache directory exists
+mkdir -p "$CACHE_DIR"
+
+if [ ! -f "$IMAGE_PATH" ]; then
+    echo "Error: Image file not found at '$IMAGE_PATH'"
+    exit 1
+fi
+
+# 1. Extract the dominant color
+# We use ImageMagick to reduce the image to 1 color in the LAB color space 
+# and extract its hex value. This closely mimics how Material You picks a seed.
+echo "[*] Extracting dominant color from image..."
+PRIMARY_HEX=$(matugen image "$IMAGE_PATH" --source-color-index 0 --dry-run --json hex | jq -r '.colors.primary.default.color')
+
+if [ -z "$PRIMARY_HEX" ]; then
+    echo "Error: Failed to extract color. Is ImageMagick installed?"
+    exit 1
+fi
+
+echo "[+] Seed color found: $PRIMARY_HEX"
+
+# 2. Generate the dank16 JSON
+# Passing the extracted color for both dark and light modes
+echo "[*] Generating dank16 palette..."
+dank-gen "$PRIMARY_HEX" "$PRIMARY_HEX" > "$JSON_OUT"
+echo "[+] Palette saved to $JSON_OUT"
+
+# 3. Call Matugen with the injected JSON
+echo "[*] Applying Matugen..."
+matugen image "$IMAGE_PATH" --import-json "$JSON_OUT" --source-color-index 0
+
+echo "[+] Theme applied successfully!"

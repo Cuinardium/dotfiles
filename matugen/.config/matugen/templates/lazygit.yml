@@ -1,0 +1,36 @@
+gui:
+  theme:
+    # The main accent color (Catppuccin Blue -> Matugen Primary)
+    activeBorderColor:
+      - '{{colors.primary.default.hex}}'
+      - bold
+    
+    # Muted border for inactive windows (Catppuccin Subtext -> Matugen Outline)
+    inactiveBorderColor:
+      - '{{colors.outline.default.hex}}'
+    
+    # Keybind hints and options
+    optionsTextColor:
+      - '{{colors.primary.default.hex}}'
+    
+    # Background of the currently selected line
+    selectedLineBgColor:
+      - '{{colors.surface_container.default.hex}}'
+    
+    # Cherry-picked commits (Catppuccin uses a slightly lighter surface)
+    cherryPickedCommitBgColor:
+      - '{{colors.surface_container_high.default.hex}}'
+    cherryPickedCommitFgColor:
+      - '{{colors.secondary.default.hex}}'
+    
+    # Unstaged changes (Catppuccin Red -> Matugen Error)
+    unstagedChangesColor:
+      - '{{colors.error.default.hex}}'
+   
+    # Default text color
+    defaultFgColor:
+      - '{{colors.on_surface.default.hex}}'
+    
+    # Search highlight (Catppuccin Yellow -> Matugen Tertiary)
+    searchingActiveBorderColor:
+      - '{{colors.tertiary.default.hex}}'

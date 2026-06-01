@@ -1,10 +1,12 @@
 -- Config
-return { 
-    "nvim-treesitter/nvim-treesitter",
-    build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    opts = {
-        ensure_installed = {
+return {
+{
+  "romus204/tree-sitter-manager.nvim",
+  dependencies = {}, -- tree-sitter CLI must be installed system-wide
+  config = function()
+    require("tree-sitter-manager").setup({
+      -- Default Options
+      ensure_installed = {
             "c",
             "typescript",
             "java",
@@ -24,26 +26,15 @@ return {
             "solidity",
             "c_sharp",
             "go",
-            "typst"
-        },
-        sync_install = false,
-        highlight = {
-            enable = true, -- false will disable the whole extension
-
-            -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-            --  If you are experiencing weird indenting issues, add the language to
-            --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-            additional_vim_regex_highlighting = { 'ruby' },
-        },
-        indent = { enable = true, disable = { 'ruby' } },
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "gnn", -- set to `false` to disable one of the mappings
-                node_incremental = "grn",
-                scope_incremental = "grc",
-                node_decremental = "grm",
-            },
-        }
-    }
-}
+            "typst",
+            "qmljs"
+      }, -- list of parsers to install at the start of a neovim session
+      -- border = nil, -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
+      -- auto_install = false, -- if enabled, install missing parsers when editing a new file
+      -- highlight = true, -- treesitter highlighting is enabled by default
+      -- languages = {}, -- override or add new parser sources
+      -- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
+      -- query_dir = vim.fn.stdpath("data") .. "/site/queries",
+    })
+  end
+} }

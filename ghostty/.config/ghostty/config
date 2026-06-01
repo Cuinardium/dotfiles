@@ -1,7 +1,0 @@
-font-family = "Iosevka Nerd Font"
-theme = "Everforest Dark Hard"
-background = #323D43
-font-size = 14
-confirm-close-surface=false
-window-decoration=none
-resize-overlay=never
