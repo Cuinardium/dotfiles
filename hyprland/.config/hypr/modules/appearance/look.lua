@@ -42,13 +42,7 @@ hl.config({
             vibrancy = 0.1696,
         },
     },
-
-    cursor = {
-        no_hardware_cursors = 1,
-    },
-
     dwindle = {
-        -- pseudotile = true,
         preserve_split = true,
     },
 
