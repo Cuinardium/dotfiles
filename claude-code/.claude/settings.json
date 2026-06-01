@@ -1,5 +1,5 @@
 {
-"hooks": {
+  "hooks": {
     "Stop": [
       {
         "hooks": [
@@ -22,7 +22,8 @@
     ]
   },
   "enabledPlugins": {
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "caveman": {
