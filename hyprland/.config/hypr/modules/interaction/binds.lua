@@ -12,7 +12,7 @@ hl.bind(mainMod .. "+ T",       hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. "+ P",       hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.window.set_prop({ prop = "opaque", value = "toggle" }))
 hl.bind(mainMod .. "+ F",       hl.dsp.window.fullscreen(0))
-hl.bind(mainMod .. "+ Q",       hl.dsp.exec_cmd("hyprctl dispatch global quickshell:toggle-power-menu"))
+hl.bind(mainMod .. "+ Q",       hl.dsp.global("quickshell:toggle-power-menu"))
 
 --------------------------
 ----     PROGRAMS     ----
@@ -59,6 +59,7 @@ end
 hl.bind(mainMod .. "+ left",  hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. "+ right", hl.dsp.focus({ workspace = "m+1" }))
 hl.bind(mainMod .. "+ A", hl.dsp.workspace.toggle_special("agents"))
+hl.bind(mainMod .. "+ SHIFT + A", hl.dsp.window.move({ workspace = "special:agents"}))
 
 --------------------------
 ----    WALLPAPER     ----

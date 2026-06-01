@@ -56,6 +56,14 @@ hl.window_rule({
     size = "800 500",
 })
 
+hl.window_rule({
+    name = "proton pass",
+    match = { class = "^(Proton Pass)$"},
+    float = true,
+    center = true,
+    size = "800 500",
+})
+
 -- Opaque Tag
 hl.window_rule({
     name = "opaque",
