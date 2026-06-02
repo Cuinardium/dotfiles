@@ -11,7 +11,7 @@ local terminal = "kitty --single-instance"
 local programs = {
     terminal = terminal,
     fileManager = terminal .. " --class=yazi -e yazi",
-    musicterm = terminal .. " --class=lofi.player --title=\"Lofi\" -e /home/cuini/.bin/lofi.sh --instance-group=music",
+    musicterm = terminal .. " --class=lofi.player --title=\"Lofi\" -e /home/cuini/.local/bin/lofi.sh --instance-group=music",
     browser = "firefox",
     notes = "obsidian",
 }
