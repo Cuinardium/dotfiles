@@ -1,6 +1,6 @@
 hl.on("hyprland.start", function()
     -- System Services
-    hl.exec_cmd("quickshell -p /home/cuini/Repos/hyprland-shell/shell.qml & hyprpaper &")
+    hl.exec_cmd("quickshell & hyprpaper &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
     -- Scripts
