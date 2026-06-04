@@ -6,6 +6,7 @@ import qs.style
 import qs.style.motions
 import qs.util
 import qs.components
+import qs
 
 // Responsabilidad única: renderizar un workspace y emitir señales hacia arriba.
 // No escribe en el padre — nunca usa Binding con target externo.
