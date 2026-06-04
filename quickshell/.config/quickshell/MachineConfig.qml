@@ -6,17 +6,22 @@ import Quickshell.Io
 Singleton {
     id: root
 
-    FileView {
-        id: configFile
-        path: Quickshell.env("HOME") + "/.config/quickshell/machine.json"
-        watchChanges: false
-    }
+    property list<QtObject> _children: [
+        FileView {
+            path: Quickshell.shellDir + "/machine.json"
+            watchChanges: true
+            onFileChanged: reload()
 
-    readonly property var config: {
-        try { return JSON.parse(configFile.text || "{}") } catch(_) { return {} }
-    }
+            adapter: JsonAdapter {
+                id: config
+                property string primaryScreen: Quickshell.screens[0]?.name ?? ""
+                property int iconFontSize: 22
+                property string iconSpacing: " "
+            }
+        }
+    ]
 
-    readonly property string primaryScreen: config.primaryScreen ?? (Quickshell.screens[0]?.name ?? "")
-    readonly property int iconFontSize: config.iconFontSize ?? 22
-    readonly property string iconSpacing: config.iconSpacing ?? " "
+    readonly property string primaryScreen: config.primaryScreen
+    readonly property int iconFontSize: config.iconFontSize
+    readonly property string iconSpacing: config.iconSpacing
 }
