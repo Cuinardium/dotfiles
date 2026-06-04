@@ -1,0 +1,24 @@
+-- Copy to monitors.local.lua and adjust for your monitor setup.
+-- Find output names with: hyprctl monitors
+
+hl.monitor({
+    output = "HDMI-A-1",
+    mode = "2560x1080",
+    position = "0x0",
+    scale = "1",
+})
+
+-- Workspaces
+for i = 1, 10 do
+    hl.workspace_rule({
+        workspace = i,
+        monitor = "HDMI-A-1",
+        persistent = true,
+    })
+end
+
+hl.workspace_rule({
+    workspace = "special:agents",
+    monitor = "HDMI-A-1",
+    layout = "scrolling"
+})

@@ -1,0 +1,25 @@
+-- Copy to input.local.lua and adjust for your input devices.
+-- Find device names with: hyprctl devices
+
+hl.device({
+    name = "your-keyboard-name",
+})
+
+hl.device({
+    name = "your-mouse-name",
+    sensitivity = -0.5
+})
+
+-- Touchpad (laptop/trackpad only)
+-- hl.config({
+--     input = {
+--         touchpad = {
+--             tap_to_click = false,
+--             clickfinger_behavior = true
+--         }
+--     }
+-- })
+-- hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+-- hl.gesture({ fingers = 3, direction = "swipe", mods = "SUPER", action = "move" })
+-- hl.gesture({ fingers = 2, direction = "pinch", mods = "SUPER", action = "float" })
+-- hl.gesture({ fingers = 2, direction = "pinch", mods = "alt", action = "resize" })

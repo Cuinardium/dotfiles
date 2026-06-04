@@ -1,0 +1,15 @@
+# Copy to variables.local.zsh — machine-specific paths and env vars.
+
+export TERMINAL="kitty"
+
+# Node package manager — pick one
+# export PNPM_HOME="$HOME/.local/share/pnpm"
+# case ":$PATH:" in *":$PNPM_HOME:"*) ;; *) export PATH="$PNPM_HOME:$PATH" ;; esac
+
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
+# [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# Extra paths
+# export PATH="$PATH:$HOME/.cargo/bin"
+# export PATH=/home/cuini/.opencode/bin:$PATH
