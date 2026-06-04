@@ -1,4 +1,8 @@
-## 
+##
+quickshell/.config/quickshell/machine.json
+hyprland/.config/hypr/modules/hardware/monitors.local.lua
+hyprland/.config/hypr/modules/hardware/input.local.lua
+zsh/.config/zsh/environment/variables.local.zsh
 neovim/.config/nvim/plugin/packer_compiled.lua
 neovim/.config/nvim/lazy-lock.json
 zsh/.config/zsh/environment/credentials.zsh
