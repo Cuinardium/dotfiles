@@ -48,7 +48,7 @@ Item {
 
     property string icons: {
         void _iconRevision  // force dependency registration — re-evaluates on appId/title changes
-        return windows.slice(0,3).map(t => IconMap.getMatch(t?.wayland?.appId ?? "", t?.title ?? "").icon).join(" ");
+        return windows.slice(0,3).map(t => IconMap.getMatch(t?.wayland?.appId ?? "", t?.title ?? "").icon).join(Quickshell.hostName === "asahi" ? "   " : " ");
     }
 
     // --- Sizing ---
@@ -88,7 +88,7 @@ Item {
         textFormat: Text.PlainText
         wrapMode: Text.NoWrap
         font.bold: true
-        font.pixelSize: 22
+        font.pixelSize: Quickshell.hostName === "asahi" ? 14 : 22
 
         opacity: root.isEmpty ? 0 : 1
         scale: root.isEmpty ? 0.5 : (root.isFocused ? 1.1 : 1.0)

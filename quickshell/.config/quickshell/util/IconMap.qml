@@ -9,6 +9,7 @@ Singleton {
     readonly property var id_map: {
         "chromium":            { title: "Chromium",                  icon: "" },
         "firefox":             { title: "Firefox",                   icon: "󰈹" },
+        "org.mozilla.firefox": { title: "Firefox",                   icon: "󰈹" },
         "kitty":               { title: "Kitty",                     icon: "" },
         "android-studio":      { title: "Android Studio",            icon: "󰀴" },
         "jetbrains-idea":      { title: "IntelliJ IDEA",             icon: "" },

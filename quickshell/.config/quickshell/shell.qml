@@ -6,7 +6,7 @@ import qs.panels
 
 Scope {
     id: shell
-    readonly property string primaryScreen: "HDMI-A-1"
+    readonly property string primaryScreen: Quickshell.hostName === "asahi" ? "eDP-1" : "HDMI-A-1"
 
     Bar {
         primaryScreen: shell.primaryScreen

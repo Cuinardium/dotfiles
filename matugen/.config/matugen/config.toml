@@ -95,7 +95,7 @@ output_path = '~/.config/lazygit/config.yml'
 
 [templates.quickshell]
 input_path = './templates/colors.json'
-output_path = '~/Repos/hyprland-shell/style/colors.json'
+output_path = '~/.config/quickshell/style/colors.json'
 
 [templates.kitty]
 input_path = './templates/kitty-colors.conf'
