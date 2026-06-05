@@ -46,6 +46,7 @@ StyledRect {
 
         ProgressIcon {
             id: tempProgress
+            visible: Resources.cpuTemp > 0
             Layout.alignment: Qt.AlignVCenter
             Layout.preferredWidth: root.iconSize
             Layout.preferredHeight: root.iconSize
