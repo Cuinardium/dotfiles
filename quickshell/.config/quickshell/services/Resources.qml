@@ -4,6 +4,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import qs
 
 /**
  * Polled resource usage service with RAM, Swap, CPU usage, and Temperature.
@@ -12,7 +13,7 @@ Singleton {
     id: root
 
     // --- Configuration Paths ---
-    property string thermalPath: "/sys/class/hwmon/hwmon2/temp1_input"
+    property string thermalPath: MachineConfig.thermalPath
 
     // --- Memory & Swap ---
     property real memoryTotal: 1
@@ -33,7 +34,7 @@ Singleton {
     function poll() {
         fileMeminfo.reload();
         fileStat.reload();
-        fileTemp.reload();
+        if (root.thermalPath) fileTemp.reload();
 
         // Parse Memory & Swap
         const textMeminfo = fileMeminfo.text();
@@ -71,8 +72,12 @@ Singleton {
         }
 
         // Parse CPU Temperature
-        const tempRaw = Number(fileTemp.text() || 0);
-        cpuTemp = tempRaw > 0 ? (tempRaw / 1000) : 0;
+        if (root.thermalPath) {
+            const tempRaw = Number(fileTemp.text() || 0);
+            cpuTemp = tempRaw > 0 ? (tempRaw / 1000) : 0;
+        } else {
+            cpuTemp = 0;
+        }
     }
 
     Timer {

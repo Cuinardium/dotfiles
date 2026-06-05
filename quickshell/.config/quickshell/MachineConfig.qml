@@ -17,6 +17,7 @@ Singleton {
                 property string primaryScreen: Quickshell.screens[0]?.name ?? ""
                 property int iconFontSize: 22
                 property string iconSpacing: " "
+                property string thermalPath: ""
             }
         }
     ]
@@ -24,4 +25,5 @@ Singleton {
     readonly property string primaryScreen: config.primaryScreen
     readonly property int iconFontSize: config.iconFontSize
     readonly property string iconSpacing: config.iconSpacing
+    readonly property string thermalPath: config.thermalPath
 }

@@ -1,5 +1,6 @@
 {
     "primaryScreen": "eDP-1",
     "iconFontSize": 14,
-    "iconSpacing": "   "
+    "iconSpacing": "   ",
+    "thermalPath": "/sys/class/hwmon/hwmon0/temp1_input"
 }
