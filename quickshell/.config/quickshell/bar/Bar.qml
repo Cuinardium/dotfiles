@@ -99,6 +99,7 @@ Scope {
                 anchors.bottom: parent.bottom
                 spacing: Tokens.appearance.spacing.small
 
+                BatteryWidget {}
                 NetworkWidget {}
                 NotificationButton {}
                 ClockWidget {}
