@@ -101,3 +101,8 @@ output_path = '~/.config/quickshell/style/colors.json'
 input_path = './templates/kitty-colors.conf'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 post_hook = 'kitty +kitten themes --reload-in=all Matugen'
+
+[templates.hyprtoolkit]
+input_path = './templates/hyprtoolkit.conf'
+output_path = '~/.config/hypr/hyprtoolkit.conf'
+post_hook = 'systemctl --user restart hyprpolkitagent.service'
