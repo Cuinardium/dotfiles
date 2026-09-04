@@ -1,0 +1,7 @@
+# Machine-private pi state — do not track
+auth.json
+models-store.json
+settings.json
+sessions/
+session-env/
+shell-snapshots/

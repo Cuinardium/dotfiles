@@ -26,7 +26,7 @@ Loader {
     Connections {
         target: Hyprland
         function onRawEvent(event) {
-            if (event.name === "activespecialv2" || (event.name === "custom" && event.data === "claude-urgent")) {
+            if (event.name === "activespecialv2" || (event.name === "custom" && (event.data === "claude-urgent" || event.data === "pi-urgent"))) {
                 Hyprland.refreshToplevels();
                 Hyprland.refreshMonitors();
             }

@@ -100,3 +100,21 @@ opencode() {
     sleep 0.3
     hyprctl dispatch "hl.dsp.focus({window = 'pid:$PID'})"
 }
+
+# Pi Agent Alias
+# Igual que claude/opencode: se abre en una ventana de kitty con class "agent"
+# para que la window rule de hyprland lo mande a special:agents.
+# Le pasamos un titulo e ID unicos asi el hook (extension de pi) sabe cual
+# es la ventana y puede setearle el tag urgente cuando espera input.
+pi() {
+    local PI_INSTANCE_ID=$(cat /proc/sys/kernel/random/uuid | cut -c1-8)
+
+    kitty --class "agent" \
+          --title "Pi-$PI_INSTANCE_ID" \
+          -o "env PI_INSTANCE_ID=$PI_INSTANCE_ID" \
+          --directory "$PWD" \
+          -e pi "$@" > /dev/null 2>&1 & disown
+
+    sleep 0.3
+    hyprctl dispatch "hl.dsp.focus({window = 'title:Pi-$PI_INSTANCE_ID'})"
+}
