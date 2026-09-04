@@ -58,6 +58,7 @@ end
 -- Workspace Scrolling
 hl.bind(mainMod .. "+ left",  hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. "+ right", hl.dsp.focus({ workspace = "m+1" }))
+
 hl.bind(mainMod .. "+ A", hl.dsp.workspace.toggle_special("agents"))
 hl.bind(mainMod .. "+ SHIFT + A", hl.dsp.window.move({ workspace = "special:agents"}))
 
@@ -100,3 +101,8 @@ hl.bind(mainMod .. "+ SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboar
 --------------------------
 hl.bind(mainMod .. "+ mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. "+ mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-------------------------
+---    KB BINDS ---------
+-------------------------
+hl.bind("ALT + N", hl.dsp.exec_cmd("wtype ñ"))
