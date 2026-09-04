@@ -20,6 +20,8 @@ return {
 		opts = {
 			keymap = {
 				preset = "default",
+				["<Tab>"] = false,
+				["<S-Tab>"] = false,
 			},
 
 			appearance = {

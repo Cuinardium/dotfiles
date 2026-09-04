@@ -28,16 +28,14 @@ lazy.setup({
 			processor = "magick_cli",
 		},
 	},
-	{
-		"andweeb/presence.nvim", -- discord presence
-		opts = {
-			main_image = "file",
-			buttons = false,
-			show_time = false,
-		},
-		event = "VimEnter",
-		enabled = false,
-	},
+    {
+      'vyfor/cord.nvim',
+      opts = {
+          display = {
+              theme = 'minecraft'
+          }
+      }
+    },
 	{
 		"nvzone/typr", -- Typing game
 		dependencies = "nvzone/volt",
@@ -75,12 +73,6 @@ lazy.setup({
 	require("cuini.plugins.autocomplete"), -- Engine de autocompletado
 
 	-- -- LLM integration
-	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup({})
-		end,
-	},
 	{
 		"SmiteshP/nvim-navic", -- winbar
 		opts = { highlight = true },

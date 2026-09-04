@@ -36,7 +36,16 @@ local formatters_by_filetype = {
 	python = { "black" },
 	java = { "google-java-format" },
 	javascript = { "prettier" },
+	javascriptreact = { "prettier" },
+	typescript = { "prettier" },
+	typescriptreact = { "prettier" },
 	html = { "prettier" },
+	css = { "prettier" },
+	scss = { "prettier" },
+	json = { "prettier" },
+	jsonc = { "prettier" },
+	markdown = { "prettier" },
+	yaml = { "prettier" },
 }
 
 -- ============================================================================
