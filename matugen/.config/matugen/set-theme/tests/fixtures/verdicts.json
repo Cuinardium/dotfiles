@@ -1,0 +1,465 @@
+{
+  "_comment": "Human verdicts from a full review of the wallpaper collection, captured 2026-09-12. Each entry records matugen's candidate list so the selection policy can be regression-tested without matugen or the original image files. 'approved_index' means the reviewer accepted exactly that pick; 'wanted_hues' means they rejected it and named the hue they expected, which only an override can satisfy.",
+  "wallpapers": {
+    "balcony-baloons-girl.jpg": {
+      "candidates": [
+        "#1d3c4a",
+        "#a3201d",
+        "#9eab9d",
+        "#353137"
+      ],
+      "primaries": [
+        "#8ccff0",
+        "#ffb4ab",
+        "#99d4a3",
+        "#dbb9f9"
+      ],
+      "approved_index": 0
+    },
+    "cherry-blossom-train-day.jpg": {
+      "candidates": [
+        "#db79a9",
+        "#adc264",
+        "#8fa4dc",
+        "#be814f"
+      ],
+      "primaries": [
+        "#feb0d3",
+        "#bdce80",
+        "#b1c6ff",
+        "#ffb77e"
+      ],
+      "approved_index": 0
+    },
+    "coffee-lake-window-girl.jpg": {
+      "candidates": [
+        "#398ab6",
+        "#cf7741",
+        "#22141b",
+        "#8a9a95"
+      ],
+      "primaries": [
+        "#92cef5",
+        "#ffb68d",
+        "#fcb0d6",
+        "#84d6c3"
+      ],
+      "approved_index": 0
+    },
+    "dusk-dystopic-building.jpg": {
+      "candidates": [
+        "#c3725e",
+        "#383f55",
+        "#06171b",
+        "#5a4757"
+      ],
+      "primaries": [
+        "#ffb4a2",
+        "#b3c5ff",
+        "#84d2e5",
+        "#efb3e8"
+      ],
+      "approved_index": 0
+    },
+    "dusk-highway.jpg": {
+      "candidates": [
+        "#498bbd"
+      ],
+      "primaries": [
+        "#98ccf9"
+      ],
+      "approved_index": 0
+    },
+    "electricity-post-day.jpg": {
+      "candidates": [
+        "#047b69",
+        "#e02501",
+        "#855f02",
+        "#300e26"
+      ],
+      "primaries": [
+        "#84d6c2",
+        "#ffb4a5",
+        "#edc06c",
+        "#f8b1dc"
+      ],
+      "approved_index": 0
+    },
+    "fishing-port-girl.jpg": {
+      "candidates": [
+        "#184b86",
+        "#df8442",
+        "#2c3f41",
+        "#5d5357"
+      ],
+      "primaries": [
+        "#a7c8ff",
+        "#ffb787",
+        "#81d4dc",
+        "#fbb0d8"
+      ],
+      "approved_index": 0
+    },
+    "green-studio-girl.jpg": {
+      "candidates": [
+        "#98b5aa",
+        "#869a84",
+        "#9da071",
+        "#695e46"
+      ],
+      "primaries": [
+        "#87d6bd",
+        "#9dd49e",
+        "#c6cc7a",
+        "#e6c26c"
+      ],
+      "approved_index": 0
+    },
+    "japan-city-night.jpg": {
+      "candidates": [
+        "#033454",
+        "#bb3c04",
+        "#4f4c5e",
+        "#5a374d"
+      ],
+      "primaries": [
+        "#9bcbfb",
+        "#ffb59d",
+        "#c8bfff",
+        "#f8b1dc"
+      ],
+      "approved_index": 0
+    },
+    "lake-studio.png": {
+      "candidates": [
+        "#638690",
+        "#da614d",
+        "#24282c",
+        "#303138"
+      ],
+      "primaries": [
+        "#84d2e7",
+        "#ffb4a7",
+        "#97ccf8",
+        "#b6c4ff"
+      ],
+      "wanted_hues": [
+        "orange",
+        "red",
+        "yellow"
+      ],
+      "rejected_index": 0,
+      "reviewer_note": "maybe orange but i would like to see it first because the blue is not that bad"
+    },
+    "miku.jpeg": {
+      "candidates": [
+        "#66767c",
+        "#f2e097",
+        "#7e847f",
+        "#938077"
+      ],
+      "primaries": [
+        "#86d1e9",
+        "#dbc66f",
+        "#8ed5b1",
+        "#ffb68f"
+      ],
+      "approved_index": 1
+    },
+    "minecraft-forest-house.png": {
+      "candidates": [
+        "#404755",
+        "#3c4235",
+        "#674a45",
+        "#3d4344"
+      ],
+      "primaries": [
+        "#a9c7ff",
+        "#aed18d",
+        "#ffb4a7",
+        "#81d3df"
+      ],
+      "wanted_hues": [
+        "green"
+      ],
+      "rejected_index": 0,
+      "reviewer_note": "maybe green, but again blue is not that bad"
+    },
+    "moto-tunnel-girl.jpg": {
+      "candidates": [
+        "#2c4e54",
+        "#b4a175",
+        "#252637",
+        "#836153"
+      ],
+      "primaries": [
+        "#82d3e1",
+        "#e5c36c",
+        "#bec2ff",
+        "#ffb597"
+      ],
+      "approved_index": 0
+    },
+    "pantano-templo.jpg": {
+      "candidates": [
+        "#6ad5a4",
+        "#151a13",
+        "#fae491",
+        "#6c5637"
+      ],
+      "primaries": [
+        "#8ed5b1",
+        "#a4d396",
+        "#dcc66e",
+        "#f3bd6e"
+      ],
+      "approved_index": 0
+    },
+    "paper-plane-girl.jpg": {
+      "candidates": [
+        "#377c80",
+        "#6c4822",
+        "#425328",
+        "#1d1b2c"
+      ],
+      "primaries": [
+        "#80d4d9",
+        "#fdb975",
+        "#b4d087",
+        "#c7bfff"
+      ],
+      "approved_index": 0
+    },
+    "pastel-ae86.png": {
+      "candidates": [
+        "#8685c5",
+        "#c7a2df",
+        "#e3a0cb",
+        "#8f4d59"
+      ],
+      "primaries": [
+        "#c2c1ff",
+        "#deb8f7",
+        "#f7b1de",
+        "#ffb2bd"
+      ],
+      "approved_index": 0
+    },
+    "persianas-verde.jpg": {
+      "candidates": [
+        "#0f1517",
+        "#111b1b",
+        "#284827",
+        "#173227"
+      ],
+      "primaries": [
+        "#85d1e8",
+        "#80d4d5",
+        "#a0d39a",
+        "#8bd5b5"
+      ],
+      "approved_index": 2
+    },
+    "pier-girl-boat.png": {
+      "candidates": [
+        "#15527e",
+        "#494a4f",
+        "#586167",
+        "#595672"
+      ],
+      "primaries": [
+        "#9ccbfb",
+        "#aec6ff",
+        "#8ecff2",
+        "#c6bfff"
+      ],
+      "approved_index": 0
+    },
+    "pink-cloud-girl.png": {
+      "candidates": [
+        "#434a74",
+        "#a2748f",
+        "#746284",
+        "#ea9b9b"
+      ],
+      "primaries": [
+        "#bac3ff",
+        "#f9b1db",
+        "#dbb9f9",
+        "#ffb3b3"
+      ],
+      "approved_index": 0
+    },
+    "pokemon-girl.jpg": {
+      "candidates": [
+        "#3e4f62",
+        "#2d1724",
+        "#4b4656",
+        "#ad9d99"
+      ],
+      "primaries": [
+        "#9dcafc",
+        "#fab1d9",
+        "#cfbdfe",
+        "#ffb5a0"
+      ],
+      "approved_index": 0
+    },
+    "rayquaza-wailmer-may.png": {
+      "candidates": [
+        "#405061",
+        "#515d65",
+        "#475053"
+      ],
+      "primaries": [
+        "#9ccbfb",
+        "#8fcef3",
+        "#85d2e7"
+      ],
+      "approved_index": 0
+    },
+    "road-to-city.jpg": {
+      "candidates": [
+        "#163c88",
+        "#695990",
+        "#875c8a",
+        "#c78a9f"
+      ],
+      "primaries": [
+        "#b2c5ff",
+        "#d0bcfe",
+        "#ebb5ed",
+        "#ffb0cb"
+      ],
+      "approved_index": 0
+    },
+    "road-woods.jpg": {
+      "candidates": [
+        "#4c6b53",
+        "#050e0b",
+        "#314959",
+        "#364a50"
+      ],
+      "primaries": [
+        "#97d5a5",
+        "#86d6be",
+        "#92cef5",
+        "#85d2e7"
+      ],
+      "approved_index": 0
+    },
+    "sign-sunset-girl.png": {
+      "candidates": [
+        "#73698d",
+        "#c1877d",
+        "#4c5969",
+        "#9c7b8d"
+      ],
+      "primaries": [
+        "#cfbdfe",
+        "#ffb4a7",
+        "#9ecafc",
+        "#f9b1db"
+      ],
+      "approved_index": 0
+    },
+    "snow-warrior.jpg": {
+      "candidates": [
+        "#204e71",
+        "#1c2638",
+        "#091115"
+      ],
+      "primaries": [
+        "#9acbfa",
+        "#aac7ff",
+        "#8ccff0"
+      ],
+      "approved_index": 0
+    },
+    "telescope-girl-cats.jpg": {
+      "candidates": [
+        "#275c94",
+        "#e38d8f",
+        "#0a1e16",
+        "#7c747d"
+      ],
+      "primaries": [
+        "#a3c9fe",
+        "#ffb3b4",
+        "#8bd5b5",
+        "#e1b7f5"
+      ],
+      "approved_index": 0
+    },
+    "train-coast-day.jpg": {
+      "candidates": [
+        "#70bdd9",
+        "#eed774",
+        "#8faf76",
+        "#c7dcd4"
+      ],
+      "primaries": [
+        "#88d1ec",
+        "#dbc66f",
+        "#acd28f",
+        "#85d6c0"
+      ],
+      "wanted_hues": [
+        "green",
+        "yellow"
+      ],
+      "rejected_index": 0,
+      "reviewer_note": "the green or yellow from the train"
+    },
+    "train-dusk-pools.png": {
+      "candidates": [
+        "#5a5e9c",
+        "#33518d",
+        "#8375a4",
+        "#a28cad"
+      ],
+      "primaries": [
+        "#bfc2ff",
+        "#afc6ff",
+        "#d0bcfe",
+        "#e0b8f6"
+      ],
+      "approved_index": 0
+    },
+    "tree-grass-moto-sunset.jpg": {
+      "candidates": [
+        "#38a2a7",
+        "#953e37",
+        "#2d323b",
+        "#e9d174"
+      ],
+      "primaries": [
+        "#80d4d8",
+        "#ffb4ab",
+        "#a6c8ff",
+        "#dcc66e"
+      ],
+      "wanted_hues": [
+        "red",
+        "orange"
+      ],
+      "rejected_index": 0,
+      "reviewer_note": "the redish/ orange"
+    },
+    "winter-groceries-girl-cat.jpeg": {
+      "candidates": [
+        "#1a4866",
+        "#0e2a31",
+        "#252d42",
+        "#2a272f"
+      ],
+      "primaries": [
+        "#97ccf8",
+        "#85d2e7",
+        "#b1c5ff",
+        "#d1bcfd"
+      ],
+      "approved_index": 0
+    }
+  }
+}

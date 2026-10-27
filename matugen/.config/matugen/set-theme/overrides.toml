@@ -1,0 +1,33 @@
+# Per-wallpaper source-colour overrides.
+#
+# set-theme normally seeds a palette from the most dominant colour that is
+# usable (not too dark, not too grey). That matches human judgement on the large
+# majority of wallpapers. It misses when a large background wins on area but the
+# eye reads a smaller subject -- a train, a sunset -- as the subject of the
+# image. Matugen exposes only a handful of quantised colours with no spatial
+# information, so no threshold can recover that. Pin the index by hand instead.
+#
+# Keys are wallpaper filenames (basename, not full path).
+#   index : which candidate to use, 0 = most dominant
+#   note  : why, so future-you knows whether it is still wanted
+#
+# Inspect candidates with:  set-theme inspect <image>
+# Edit from the CLI with:   set-theme override set <name> <index> --note "..."
+# Delete an entry to fall back to the automatic pick.
+
+
+["lake-studio.png"]
+index = 1
+note = "warm red over the washed-out blue-grey of the lake"
+
+["minecraft-forest-house.png"]
+index = 1
+note = "foliage green over the misty blue sky"
+
+["train-coast-day.jpg"]
+index = 1
+note = "the train's yellow over the sky"
+
+["tree-grass-moto-sunset.jpg"]
+index = 1
+note = "the sunset red over the treeline cyan"

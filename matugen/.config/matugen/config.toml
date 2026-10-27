@@ -1,4 +1,7 @@
 [config]
+# Source-color selection lives in `set-theme`, which inspects the candidate
+# list and passes an explicit --source-color-index. Setting `prefer` here would
+# be dead config: an explicit index always overrides it.
 
 
 [templates.btop]

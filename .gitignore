@@ -13,3 +13,7 @@ sketchybar/.config/sketchybar/scripts/weather.env.sh
 tmux/.config/tmux/plugins/*
 
 
+
+# python bytecode (set-theme subproject)
+__pycache__/
+*.pyc
