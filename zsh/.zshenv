@@ -9,4 +9,6 @@
 # long-lived GUI processes inherited the mess permanently.
 typeset -U path PATH
 
-. "$HOME/.cargo/env"
+# rustup is optional: an unguarded source here makes *every* shell (scripts and
+# non-interactive ones included) print an error on a machine without it.
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
