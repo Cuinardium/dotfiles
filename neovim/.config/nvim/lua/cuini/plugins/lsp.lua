@@ -35,6 +35,7 @@ local formatters_by_filetype = {
 	lua = { "stylua" },
 	python = { "black" },
 	java = { "google-java-format" },
+	cs = { "csharpier" },
 	javascript = { "prettier" },
 	javascriptreact = { "prettier" },
 	typescript = { "prettier" },
