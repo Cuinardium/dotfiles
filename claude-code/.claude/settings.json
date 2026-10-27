@@ -2,7 +2,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "Stop": [
       {
@@ -26,7 +26,6 @@
     ]
   },
   "enabledPlugins": {
-    "caveman@caveman": true,
     "lua-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true
   },
@@ -50,8 +49,14 @@
       }
     }
   },
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "medium"
+    }
+  },
   "tui": "fullscreen",
   "theme": "auto",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "switchModelsOnFlag": false
 }
