@@ -1,6 +1,10 @@
 -- Copy to monitors.local.lua and adjust for your monitor setup.
 -- Find output names with: hyprctl monitors
 
+-- Monitor donde vive el scratchpad de agentes (SUPER + A).
+-- Si lo dejas en nil, el toggle usa el monitor con foco (default de Hyprland).
+local agentsMonitor = "HDMI-A-1"
+
 hl.monitor({
     output = "HDMI-A-1",
     mode = "2560x1080",
@@ -19,6 +23,11 @@ end
 
 hl.workspace_rule({
     workspace = "special:agents",
-    monitor = "HDMI-A-1",
+    monitor = agentsMonitor,
     layout = "scrolling"
 })
+
+-- Datos que consumen los modulos versionados (ver modules/hardware/monitors.lua)
+return {
+    agents_monitor = agentsMonitor,
+}

@@ -59,8 +59,69 @@ end
 hl.bind(mainMod .. "+ left",  hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. "+ right", hl.dsp.focus({ workspace = "m+1" }))
 
-hl.bind(mainMod .. "+ A", hl.dsp.workspace.toggle_special("agents"))
-hl.bind(mainMod .. "+ SHIFT + A", hl.dsp.window.move({ workspace = "special:agents"}))
+-- Agent Workspace (super + A)
+-- Hyprland no tiene "special workspace por monitor": al togglear, el special
+-- se reasigna al monitor con foco (CMonitor::setSpecialWorkspace hace
+-- pWorkspace->m_monitor = m_self) y TODAS las ventanas se van con el,
+-- re-tileadas con el layout y el tamano del monitor nuevo.
+-- Fix: el toggle siempre se ejecuta estando en el monitor dueno del special,
+-- que se declara en modules/hardware/monitors.local.lua (archivo local).
+-- Si ahi no se declara, se usa el comportamiento default de Hyprland.
+local agentsWsName = "agents"
+local agentsMonitor = require("modules.hardware.monitors").agents_monitor
+
+-- monitor en el que esta abierto el special, o nil si esta cerrado
+local function agentsOpenOn()
+    for _, mon in ipairs(hl.get_monitors()) do
+        local special = mon.active_special_workspace
+        if special and special.name == "special:" .. agentsWsName then
+            return mon
+        end
+    end
+    return nil
+end
+
+local function toggleAgents()
+    local owner = agentsMonitor and hl.get_monitor(agentsMonitor) or nil
+    if not owner then
+        -- sin monitor configurado (o desconectado): comportamiento default
+        hl.dispatch(hl.dsp.workspace.toggle_special(agentsWsName))
+        return
+    end
+
+    local prev = hl.get_active_monitor()
+    local prevName = prev and prev.name
+    local away = prevName ~= nil and prevName ~= agentsMonitor
+    local openOn = agentsOpenOn()
+
+    -- cerrado: abrirlo en el monitor dueno
+    if not openOn then
+        if away then
+            hl.dispatch(hl.dsp.focus({ monitor = agentsMonitor }))
+        end
+        hl.dispatch(hl.dsp.workspace.toggle_special(agentsWsName))
+        return
+    end
+
+    -- abierto en el dueno: cerrarlo y volver a donde estabamos
+    if openOn.id == owner.id then
+        if away then
+            hl.dispatch(hl.dsp.focus({ monitor = agentsMonitor }))
+        end
+        hl.dispatch(hl.dsp.workspace.toggle_special(agentsWsName))
+        if away then
+            hl.dispatch(hl.dsp.focus({ monitor = prevName }))
+        end
+        return
+    end
+
+    -- abierto en otro monitor (se lo robaron): traerlo de vuelta al dueno
+    hl.dispatch(hl.dsp.focus({ monitor = agentsMonitor }))
+    hl.dispatch(hl.dsp.workspace.toggle_special(agentsWsName))
+end
+
+hl.bind(mainMod .. "+ A", toggleAgents)
+hl.bind(mainMod .. "+ SHIFT + A", hl.dsp.window.move({ workspace = "special:" .. agentsWsName }))
 
 --------------------------
 ----    WALLPAPER     ----

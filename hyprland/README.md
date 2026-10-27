@@ -91,3 +91,20 @@ hl.device({
 ```
 
 For Apple Silicon (Asahi), see the `input.lua` history for the trackpad + gesture config.
+
+## Agent workspace (SUPER + A) — why the bind is not a plain dispatcher
+
+Hyprland has no per-monitor special workspaces. `toggle_special` always assigns the
+workspace to the **focused** monitor (`ConfigActions::toggleSpecial` ->
+`CMonitor::setSpecialWorkspace` does `pWorkspace->m_monitor = m_self`), so every window in
+it travels to that monitor and gets re-tiled / re-scaled there. Toggling agents while
+focused on the second monitor therefore destroys the layout of the agent windows.
+
+`binds.lua` works around it by anchoring the toggle to `agents_monitor`:
+
+- closed -> focus the owner monitor, then toggle (opens there)
+- open on the owner -> toggle, then return focus to the monitor you came from
+- open on some other monitor (stolen) -> focus the owner and toggle, which re-anchors it
+
+If `agents_monitor` is `nil` or the output is unplugged, it degrades to the plain
+Hyprland behaviour instead of doing nothing.
