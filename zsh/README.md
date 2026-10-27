@@ -2,6 +2,18 @@
 
 ## Machine-local environment
 
+## Machine-local aliases
+
+Anything named `~/.config/zsh/aliases/*.local.zsh` (gitignored) is sourced by the
+same loop as the versioned alias files, after them. Use it for aliases that name
+private hosts, accounts or profiles; the rule is that nothing job-specific ever
+lands in the repo.
+
+```zsh
+# ~/.config/zsh/aliases/programs.local.zsh
+alias az-lab='AZURE_CONFIG_DIR=~/.azure-lab az'
+```
+
 Create `~/.config/zsh/environment/variables.local.zsh` (gitignored) for machine-specific paths, tools, and env vars. Sourced at the end of `variables.zsh`.
 
 **Example (Asahi):**
