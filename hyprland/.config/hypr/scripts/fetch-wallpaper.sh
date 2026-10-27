@@ -180,7 +180,7 @@ trigger_refill() {
   local lockdir="$CACHE_DIR/.refill.lock"
   if mkdir "$lockdir" 2>/dev/null; then
     setsid bash -c "\"$0\" --__refill \"$url\" \"$ratio\" \"$atleast\"; rmdir \"$lockdir\"" \
-      >>"$CACHE_DIR/refill.log" 2>&1 </dev/null &
+      >>"/tmp/refill.log" 2>&1 </dev/null &
     disown
     echo "Pool low, background refill triggered"
   fi
