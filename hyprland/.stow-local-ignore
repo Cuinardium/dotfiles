@@ -1,0 +1,28 @@
+# GNU Stow local ignore list for the "hyprland" package.
+#
+# WARNING: a .stow-local-ignore REPLACES Stow's built-in default list, it does
+# not extend it. Stow.pm:get_ignore_regexps() returns this file's regexps
+# *instead of* @default_global_ignore_regexps. So the built-in defaults are
+# reproduced verbatim below -- do not trim them, or Stow will start linking
+# .git / .gitignore / README into $HOME.
+
+# --- built-in defaults (verbatim from GNU Stow 2.4.1) ---
+RCS
+.+,v
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+\.svn
+_darcs
+\.hg
+\.git
+\.gitignore
+\.gitmodules
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# --- local additions ---
+\.claude     # Claude Code writes settings.local.json into whatever dir it runs in
