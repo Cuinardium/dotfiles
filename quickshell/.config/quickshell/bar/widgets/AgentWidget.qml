@@ -5,6 +5,7 @@ import QtQuick.Layouts
 
 import Quickshell.Hyprland
 
+import qs
 import qs.components
 import qs.style
 import qs.style.motions
@@ -16,6 +17,8 @@ Loader {
     Layout.alignment: Qt.AlignVCenter
     // Hyprland no expone bien esta propiedad para special workspaces
     readonly property bool isFocused: (Hyprland.focusedMonitor?.lastIpcObject.specialWorkspace?.name ?? "") === "special:agents"
+    // Monitor dueno del workspace de agentes (machine.json / agentsMonitor)
+    readonly property string agentsMonitor: MachineConfig.agentsMonitor
 
     // Este es para opencode
     property bool hasNativeUrgentWindow: root.workspace?.urgent ?? false
@@ -73,8 +76,16 @@ Loader {
             radius: Tokens.appearance.rounding.full
 
             onClicked: {
-                if (root.workspace)
-                    Hyprland.dispatch("hl.dsp.workspace.toggle_special('agents')");
+                if (!root.workspace)
+                    return;
+
+                // Hyprland reasigna el special workspace al monitor con foco cada
+                // vez que se togglea (y arrastra todas las ventanas). Lo anclamos
+                // al monitor dueno del special, igual que el bind SUPER + A.
+                if (root.agentsMonitor !== "" && Hyprland.focusedMonitor?.name !== root.agentsMonitor)
+                    Hyprland.dispatch(`hl.dsp.focus({ monitor = "${root.agentsMonitor}" })`);
+
+                Hyprland.dispatch("hl.dsp.workspace.toggle_special('agents')");
             }
         }
     }
