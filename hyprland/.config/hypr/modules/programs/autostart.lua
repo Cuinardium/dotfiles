@@ -1,10 +1,14 @@
+local scriptPath = "/home/cuini/.config/hypr/scripts/"
+local wallpaperDir = "/home/cuini/Pictures/wallpapers/rotation"
+
 hl.on("hyprland.start", function()
-    -- System Services
-    hl.exec_cmd("quickshell & hyprpaper &")
+    -- System Services (hyprpaper is started by randomize-wallpaper.sh, which
+    -- generates its config first so it comes up already on the right wallpaper)
+    hl.exec_cmd("quickshell &")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
-    -- Scripts
-    hl.exec_cmd("/home/cuini/.config/hypr/randomize-wallpaper.sh \"/home/cuini/.config/hypr/wallpapers\" 1")
+    -- Wallpaper: a different one every session
+    hl.exec_cmd(scriptPath .. 'randomize-wallpaper.sh "' .. wallpaperDir .. '"')
 
     -- Clipboard
     hl.exec_cmd("clipse -listen")

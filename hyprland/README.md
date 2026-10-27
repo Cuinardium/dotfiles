@@ -108,3 +108,21 @@ focused on the second monitor therefore destroys the layout of the agent windows
 
 If `agents_monitor` is `nil` or the output is unplugged, it degrades to the plain
 Hyprland behaviour instead of doing nothing.
+
+## Wallpaper
+
+`scripts/randomize-wallpaper.sh` (at `hyprland.start`, and on `SUPER + SHIFT + W`) picks
+an image from `~/Pictures/wallpapers/rotation` — never the one already on screen — applies
+it to every monitor and re-themes the desktop with `set-theme`. Pass a directory as `$1`
+to rotate over something else.
+
+`~/.config/hypr/hyprpaper.conf` is **generated, not versioned**: the script rewrites it
+from the live monitor list right before starting hyprpaper. hyprpaper has no wildcard
+monitor, so a stale entry silently leaves that output without a wallpaper — that is why
+the config is derived instead of hand-edited. Editing it by hand does nothing, the next
+session overwrites it.
+
+If hyprpaper is already running the script hot-swaps over its IPC (`~0.1s`). Otherwise it
+writes the config and starts hyprpaper itself, so the first image drawn is already the
+chosen one instead of a leftover (`~0.4s` to first wallpaper on this machine). That is
+also why `hyprpaper` is no longer in `autostart.lua`.
