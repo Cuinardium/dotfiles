@@ -83,7 +83,14 @@ Scope {
                 ResourcesWidget {
                 }
                 StereoWidget {}
-                AgentWidget {}
+
+                // Voice typing + agents: same semantic group, so they sit closer
+                RowLayout {
+                    spacing: Tokens.appearance.spacing.smaller
+
+                    VocalinuxWidget {}
+                    AgentWidget {}
+                }
             }
 
 

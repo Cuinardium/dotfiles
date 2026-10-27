@@ -19,4 +19,10 @@ hl.on("hyprland.start", function()
 
     -- XDG Desktop Portal settings
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+
+    -- Voice dictation (Vocalinux). Hyprland does not process XDG autostart
+    -- (~/.config/autostart), so the entry the app writes from its own settings
+    -- is never launched here; we start it explicitly. No pgrep guard needed:
+    -- vocalinux is single-instance and exits by itself if already running.
+    hl.exec_cmd("vocalinux --start-minimized")
 end)
