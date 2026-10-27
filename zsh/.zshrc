@@ -17,7 +17,10 @@ for f in ~/.config/zsh/environment/*; do source $f; done
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -n "$SSH_AGENT_PID" ] && trap "kill $SSH_AGENT_PID" 0
-export PATH=$PATH:/home/cuini/.spicetify
+case ":$PATH:" in
+    *":/home/cuini/.spicetify:"*) ;;
+    *) export PATH="$PATH:/home/cuini/.spicetify" ;;
+esac
 
 # If /tmp/cwd.txt exists, cd to the directory it contains
 
