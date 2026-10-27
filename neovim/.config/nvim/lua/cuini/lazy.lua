@@ -85,19 +85,7 @@ lazy.setup({
 	require("cuini.plugins.treesitter"),
 
 	-- Git
-	{
-		"lewis6991/gitsigns.nvim", -- git integration
-		opts = {
-			signs = {
-				add = { text = "┃" },
-				change = { text = "┃" },
-				delete = { text = "┃" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-				untracked = { text = "┆" },
-			},
-		},
-	},
+	require("cuini.plugins.gitsigns"),
 
 	-- Colorschemes
 	{ "sainnhe/gruvbox-material" },

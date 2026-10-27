@@ -62,6 +62,23 @@ keymap("n", "<leader>fb", function()
     builtin.buffers(require("telescope.themes").get_dropdown({ height = 10 }))
 end, { desc = "Search Buffers" })
 
+-- Git. Buffer-local hunk/staging maps live in plugins/gitsigns.lua's on_attach.
+keymap("n", "<leader>gh", function()
+    require("cuini.hunks").hunks()
+end, { desc = "Hunk Picker" })
+
+keymap("n", "<leader>gg", builtin.git_status, { desc = "Git Status" })
+keymap("n", "<leader>gf", builtin.git_files, { desc = "Git Files" })
+keymap("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits" })
+keymap("n", "<leader>gC", builtin.git_bcommits, { desc = "Git Commits (buffer)" })
+keymap("n", "<leader>gw", builtin.git_branches, { desc = "Git Branches" })
+
+-- Quickfix
+keymap("n", "<leader>gq", "<cmd>copen<CR>", { desc = "Open Quickfix" })
+keymap("n", "<leader>gQ", "<cmd>cclose<CR>", { desc = "Close Quickfix" })
+keymap("n", "]q", "<cmd>cnext<CR>zz", opts)
+keymap("n", "[q", "<cmd>cprev<CR>zz", opts)
+
 -- Formatting
 keymap("n", "<leader>F", function()
     require("conform").format({ lsp_format = "fallback", async = true, timeout_ms = 1000 })
